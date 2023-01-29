@@ -3,7 +3,7 @@ import React from 'react';
 const ShowPassword = ({ isPasswordHidden, setIsPasswordHidden }) => {
   return (
     <div
-      className="absolute right-2 -translate-y-1/2 top-1/2 cursor-pointer"
+      className="absolute right-2 -translate-y-1/2 top-1/2 cursor-pointer hover:text-[#00A99D] transition-all"
       onClick={() => setIsPasswordHidden(!isPasswordHidden)}
     >
       {isPasswordHidden ? (
@@ -13,7 +13,7 @@ const ShowPassword = ({ isPasswordHidden, setIsPasswordHidden }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-6 h-6 "
         >
           <path
             strokeLinecap="round"
