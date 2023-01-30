@@ -6,7 +6,6 @@ const Input = ({ isPasswordHidden }) => {
   return (
     <input
       required={true}
-      pattern={'^[a-zA-Z0-9]{4,}$'}
       id="password"
       type={isPasswordHidden ? 'password' : 'text'}
       className={inputClasses}

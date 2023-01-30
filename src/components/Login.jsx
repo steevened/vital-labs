@@ -21,22 +21,6 @@ const Login = () => {
         <form className="w-2/3 max-w-xs mx-auto mb-16">
           <InputGroup>
             <InputEmail />
-            <Label htmlFor="email">Email</Label>
-            <div className="absolute right-2 -translate-y-1/2 top-1/2  hover:text-[#00A99D] transition-all">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25 "
-                />
-              </svg>
-            </div>
           </InputGroup>
           <InputGroup>
             <InputPassword isPasswordHidden={isPasswordHidden} />
@@ -46,7 +30,7 @@ const Login = () => {
               setIsPasswordHidden={setIsPasswordHidden}
             />
           </InputGroup>
-          <button className="btn btn-block bg-[#00A99D] hover:bg-[#39BC99] border-none rounded-none mt-10">
+          <button className="btn shadow-lg btn-block bg-[#00A99D] hover:bg-[#39BC99] border-none rounded-none mt-10">
             <span className="mr-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +50,7 @@ const Login = () => {
             Ingresar
           </button>
 
-          <div className="absolute w-36 h-36 z-10 top-7 -translate-x-1/2 left-1/2">
+          <div className="absolute w-36 h-36 z-10 top-7 -translate-x-1/2 left-1/2 -rotate-[0.5deg] drop-shadow-lg ">
             <img src={logo} alt="logo" />
           </div>
         </form>
