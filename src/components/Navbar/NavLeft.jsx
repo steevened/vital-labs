@@ -16,7 +16,7 @@ const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
         <img className="object-contain   h-3/6" src={logo} alt="logo" />
         <p className="text-[#00A99D] font-bold">VITAL CLUB</p>
       </div>
-      <div className="w-full border ">
+      <div className="w-full  ">
         <div className="w-5/6 mx-auto mt-10">
           <button
             onClick={() => {
@@ -45,8 +45,8 @@ const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
           </button>
         </div>
         <div className="divider w-5/6 mx-auto"></div>
-        <ul className="border flex flex-col h-full items-start justify-start w-5/6 mx-auto gap-5">
-          <li className="w-full">
+        <ul className=" flex flex-col h-full items-start justify-start w-5/6 mx-auto gap-5">
+          <li onClick={() => navigate('/pacientes')} className="w-full">
             <BtnDashboard>
               <div>
                 <svg

@@ -4,6 +4,7 @@ import './App.css';
 import ProtectedRoutes from './components/protectedRoutes/ProtectedRoutes';
 import Login from './pages/Login';
 import HomePage from './pages/HomePage';
+import Pacientes from './pages/catalogo/Pacientes';
 
 function App() {
   const [isToolbarOpen, setIsToolbarOpen] = useState(false);
@@ -17,6 +18,15 @@ function App() {
               path="/"
               element={
                 <HomePage
+                  isToolbarOpen={isToolbarOpen}
+                  setIsToolbarOpen={setIsToolbarOpen}
+                />
+              }
+            />
+            <Route
+              path="/pacientes"
+              element={
+                <Pacientes
                   isToolbarOpen={isToolbarOpen}
                   setIsToolbarOpen={setIsToolbarOpen}
                 />

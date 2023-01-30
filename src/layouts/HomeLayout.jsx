@@ -16,8 +16,10 @@ const HomeLayout = ({ children, setIsToolbarOpen, isToolbarOpen }) => {
           isToolbarOpen={isToolbarOpen}
           setIsToolbarOpen={setIsToolbarOpen}
         />
+        <div className="border flex h-full md:ml-60 border-red-500">
+          {children}
+        </div>
       </div>
-      {children}
     </>
   );
 };

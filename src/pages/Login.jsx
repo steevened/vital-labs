@@ -27,7 +27,7 @@ const Login = () => {
       className={`text-[#004841 ] relative transition-all h-full w-full min-h-screen bg-cover bg-center bg-[url('../src/assets/logo6.jpg')] `}
     >
       <div className="absolute top-0 left-0 w-full h-full bg-gray-900/60 backdrop-blur-sm"></div>
-      <div className="w-full transition-all sm:w-2/3 md:w-1/2 h-full bg-[#EAFDFA]/80 backdrop-blur-lg absolute right-0 shadow-lg shadow-gray-700 flex flex-col items-center justify-center">
+      <div className="w-full transition-all sm:w-2/3 md:w-1/2 h-full bg-[#EAFDFA]/20 sm:bg-[#EAFDFA]/50 backdrop-blur-lg absolute right-0 shadow-lg shadow-gray-700 flex flex-col items-center justify-center">
         <h1 className="text-center mt-10 text-5xl font-bold">Bienvenido</h1>
         <form onSubmit={handleSubmit} className="w-2/3 max-w-xs mx-auto mb-16">
           <InputGroup>
@@ -70,11 +70,10 @@ const Login = () => {
             </span>
             Ingresar
           </button>
-
-          <div className="absolute w-36 h-36 z-10 top-7 -translate-x-1/2 left-1/2 rotate-[0.5deg] ">
-            <img src={logo} alt="logo" />
-          </div>
         </form>
+      </div>
+      <div className="absolute w-24 h-24 z-10 -translate-x-1/2 top-5 left-1/2  sm:translate-x-0  sm:top-[85%] sm:left-5 rotate-[0.5deg] ">
+        <img src={logo} alt="logo" />
       </div>
     </div>
   );

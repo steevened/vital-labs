@@ -12,7 +12,7 @@ const NavTop = ({ setIsToolbarOpen }) => {
   };
 
   return (
-    <div className="flex justify-between   w-full md:ml-60 h-14 items-center px-5  ">
+    <div className="flex justify-between  w-full md:ml-60 h-14 items-center px-5  ">
       <div className="md:hidden ">
         <BtnCircle btnAction={() => setIsToolbarOpen(true)}>
           <svg
