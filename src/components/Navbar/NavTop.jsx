@@ -3,7 +3,7 @@ import BtnCircle from '../buttons/BtnCircle';
 
 const NavTop = ({ setIsToolbarOpen }) => {
   return (
-    <div className="flex justify-between md:justify-end  w-full md:ml-60 h-14 items-center px-5 bg-base-200">
+    <div className="flex justify-between md:justify-end  w-full md:ml-60 h-14 items-center px-5 bg-base-100 border-b">
       <div className="md:hidden ">
         <BtnCircle btnAction={() => setIsToolbarOpen(true)}>
           <svg
