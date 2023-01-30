@@ -5,11 +5,8 @@ const InputEmail = ({}) => {
 
   const inputClass = `w-full py-2 focus:outline-none peer bg-transparent shadow-[inset_0_-1px_0_0_rgba(29,34,43,.2)]`;
 
-  // const labelClass =
-  //   'transition-all absolute pointer-events-none translate-y-2 translate-x-[2px] peer-focus:-translate-y-[20px] peer-valid:-translate-y-[20px] peer-focus:scale-75 peer-focus:text-black/50 peer-valid:text-black/50 peer-focus:-translate-x-1 peer-valid:-translate-x-1 peer-valid:scale-75';
-
-  const labelClass = `transition-all absolute translate-y-2 peer-focus:-translate-y-[20px] peer-valid:-translate-y-[20px]   ${
-    !isValid ? '-translate-y-[20px]' : ''
+  const labelClass = `transition-all absolute translate-y-2 peer-focus:-translate-y-[20px] peer-valid:-translate-y-[20px] peer-focus:text-black/50  peer-valid:-translate-y-[20px] peer-focus:scale-75 ${
+    !isValid ? '-translate-y-[20px] scale-75 text-black/50' : ''
   }`;
 
   return (
