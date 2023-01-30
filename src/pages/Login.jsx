@@ -5,18 +5,26 @@ import Label from '../components/Inputs/Label';
 import ShowPassword from '../components/Inputs/ShowPassword';
 import logo from '../assets/logo.png';
 import UserLogo from '../components/Inputs/UserLogo';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
 
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/main');
+  };
+
   return (
     <div
-      className={`text-[#004841 ] relative transition-all h-full w-full min-h-screen bg-cover bg-center bg-[url('../src/assets/logo5.jpg')] `}
+      className={`text-[#004841 ] relative transition-all h-full w-full min-h-screen bg-cover bg-center bg-[url('../src/assets/logo6.jpg')] `}
     >
       <div className="absolute top-0 left-0 w-full h-full bg-gray-900/60 backdrop-blur-sm"></div>
       <div className="w-full transition-all sm:w-2/3 md:w-1/2 h-full bg-[#EAFDFA]/80 backdrop-blur-lg absolute right-0 shadow-lg shadow-gray-700 flex flex-col items-center justify-center">
         <h1 className="text-center mt-10 text-5xl font-bold">Bienvenido</h1>
-        <form className="w-2/3 max-w-xs mx-auto mb-16">
+        <form onSubmit={handleSubmit} className="w-2/3 max-w-xs mx-auto mb-16">
           <InputGroup>
             <Input id="username" type="text" />
             <Label htmlFor="username">Usuario</Label>
