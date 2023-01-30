@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import InputPassword from './Inputs/InputPassword';
-import InputEmail from './Inputs/InputEmail';
-import InputGroup from './Inputs/InputGroup';
-import Label from './Inputs/Label';
-import ShowPassword from './Inputs/ShowPassword';
+import Input from '../components/Inputs/Input';
+import InputGroup from '../components/Inputs/InputGroup';
+import Label from '../components/Inputs/Label';
+import ShowPassword from '../components/Inputs/ShowPassword';
 import logo from '../assets/logo.png';
+import UserLogo from '../components/Inputs/UserLogo';
 
 const Login = () => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-
-  // console.log(isValid);
 
   return (
     <div
@@ -20,10 +18,15 @@ const Login = () => {
         <h1 className="text-center mt-10 text-5xl font-bold">Bienvenido</h1>
         <form className="w-2/3 max-w-xs mx-auto mb-16">
           <InputGroup>
-            <InputEmail />
+            <Input id="username" type="text" />
+            <Label htmlFor="username">Usuario</Label>
+            <UserLogo />
           </InputGroup>
           <InputGroup>
-            <InputPassword isPasswordHidden={isPasswordHidden} />
+            <Input
+              isPasswordHidden={isPasswordHidden}
+              type={isPasswordHidden ? 'password' : 'text'}
+            />
             <Label htmlFor="password">Contraseña</Label>
             <ShowPassword
               isPasswordHidden={isPasswordHidden}
