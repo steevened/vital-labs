@@ -5,3 +5,9 @@
 html {
   font-family: 'Manrope', sans-serif;
 }
+
+@layer components {
+  .active {
+    @apply bg-slate-500/50 text-white border-l-4 border-l-slate-500 rounded-tr-full rounded-br-full;
+  }
+}

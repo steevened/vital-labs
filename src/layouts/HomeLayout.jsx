@@ -6,7 +6,7 @@ import Overlay from '../components/overlay/Overlay';
 const HomeLayout = ({ children, setIsToolbarOpen, isToolbarOpen }) => {
   return (
     <>
-      <div className="bg-base-200 h-screen overflow-hidden">
+      <div className="bg-p-primary h-screen overflow-hidden">
         <NavTop setIsToolbarOpen={setIsToolbarOpen} />
         <Overlay
           isToolbarOpen={isToolbarOpen}

@@ -4,7 +4,7 @@ const BtnCircle = ({ children, btnAction }) => {
   return (
     <button
       onClick={btnAction}
-      className="btn text-gray-500 btn-circle bg-transparent btn-ghost btn-sm drop-shadow-lg"
+      className=" text-gray-500 hover:text-gray-700 bg-base-100 rounded-full  p-1 shadow-lg"
     >
       {children}
     </button>

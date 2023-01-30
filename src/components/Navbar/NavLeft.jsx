@@ -1,14 +1,19 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import BtnDashboard from '../buttons/BtnDashboard';
 
 const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
   const navigate = useNavigate();
+  const [active, setActive] = useState('');
+
+  const location = useLocation();
+
+  console.log(location);
 
   return (
     <div
-      className={`shadow-lg fixed top-0 bottom-0 md:shadow-none  shadow-black/30 md:translate-x-0 transition-all  w-60 bg-base-200 z-20 ${
+      className={`shadow-lg fixed top-0 bottom-0 md:shadow-none  shadow-black/30 md:translate-x-0 transition-all  w-60 bg-gradient-to-b from-p-from to-p-to z-20 ${
         isToolbarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -16,32 +21,37 @@ const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
         <img className="object-contain   h-3/6" src={logo} alt="logo" />
         <p className="text-[#00A99D] font-bold">VITAL CLUB</p>
       </div>
-      <div className="w-full  ">
-        <div className="w-5/6 mx-auto mt-10">
+      <div className="w-full">
+        <div className="mt-10">
           <button
-            onClick={() => {
+            onClick={(e) => {
               setIsToolbarOpen(false);
               navigate('/');
+              if (location.pathname === '/') {
+                setActive('/');
+              }
             }}
-            className="btn btn-block flex shadow-lg gap-2 hover:rounded-none transition-all duration-500"
+            className={`flex transition-all duration-100 w-[90%] py-2 px-4 gap-2  text-base font-semibold ${
+              active === '/'
+                ? 'active active:active focus:active hover:active'
+                : ''
+            }`}
           >
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
-                />
-              </svg>
-            </div>
-            <p>Tablero</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
+              />
+            </svg>
+            <span>Tablero</span>
           </button>
         </div>
         <div className="divider w-5/6 mx-auto"></div>
