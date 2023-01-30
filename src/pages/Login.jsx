@@ -9,12 +9,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/main');
+    if (username !== '' || password !== '') {
+      localStorage.setItem('username', username);
+      navigate('/');
+    }
   };
 
   return (
@@ -26,7 +31,12 @@ const Login = () => {
         <h1 className="text-center mt-10 text-5xl font-bold">Bienvenido</h1>
         <form onSubmit={handleSubmit} className="w-2/3 max-w-xs mx-auto mb-16">
           <InputGroup>
-            <Input id="username" type="text" />
+            <Input
+              onChange={(e) => setUsername(e.target.value)}
+              setUsername={setUsername}
+              id="username"
+              type="text"
+            />
             <Label htmlFor="username">Usuario</Label>
             <UserLogo />
           </InputGroup>

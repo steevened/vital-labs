@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import BtnDashboard from '../buttons/BtnDashboard';
 
 const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className={`shadow-lg fixed top-0 bottom-0 md:shadow-none  shadow-black/30 md:translate-x-0 transition-all  w-60 bg-base-200 z-20 ${
@@ -15,7 +18,13 @@ const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
       </div>
       <div className="w-full border ">
         <div className="w-5/6 mx-auto mt-10">
-          <button className="btn btn-block flex gap-2 hover:rounded-none transition-all duration-500">
+          <button
+            onClick={() => {
+              setIsToolbarOpen(false);
+              navigate('/');
+            }}
+            className="btn btn-block flex shadow-lg gap-2 hover:rounded-none transition-all duration-500"
+          >
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,11 +60,11 @@ const NavLeft = ({ setIsToolbarOpen, isToolbarOpen }) => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                    d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
                   />
                 </svg>
               </div>
-              <p>Grupo 1</p>
+              <p>Catálogo</p>
             </BtnDashboard>
           </li>
           <li className="w-full">

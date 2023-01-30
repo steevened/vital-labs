@@ -2,7 +2,7 @@ import React from 'react';
 
 const BtnDashboard = ({ children }) => {
   return (
-    <button className="btn btn-block hover:rounded-none transition-all btn-primary flex gap-2 duration-500">
+    <button className="btn btn-block shadow-lg hover:rounded-none active:rounded-none focus:rounded-none transition-all btn-primary flex gap-2 duration-500">
       {children}
     </button>
   );
