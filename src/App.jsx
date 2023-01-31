@@ -5,9 +5,11 @@ import ProtectedRoutes from './components/protectedRoutes/ProtectedRoutes';
 import Login from './pages/Login';
 import HomePage from './pages/HomePage';
 import Pacientes from './pages/catalogo/Pacientes';
+import HomeLayout from './layouts/HomeLayout';
 
 function App() {
   const [isToolbarOpen, setIsToolbarOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <BrowserRouter>
@@ -20,6 +22,8 @@ function App() {
                 <HomePage
                   isToolbarOpen={isToolbarOpen}
                   setIsToolbarOpen={setIsToolbarOpen}
+                  collapsed={collapsed}
+                  setCollapsed={setCollapsed}
                 />
               }
             />
@@ -29,6 +33,8 @@ function App() {
                 <Pacientes
                   isToolbarOpen={isToolbarOpen}
                   setIsToolbarOpen={setIsToolbarOpen}
+                  collapsed={collapsed}
+                  setCollapsed={setCollapsed}
                 />
               }
             />

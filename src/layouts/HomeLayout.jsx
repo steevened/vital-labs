@@ -3,7 +3,13 @@ import NavLeft from '../components/Navbar/NavLeft';
 import NavTop from '../components/Navbar/NavTop';
 import Overlay from '../components/overlay/Overlay';
 
-const HomeLayout = ({ children, setIsToolbarOpen, isToolbarOpen }) => {
+const HomeLayout = ({
+  children,
+  setIsToolbarOpen,
+  isToolbarOpen,
+  collapsed,
+  setCollapsed,
+}) => {
   return (
     <>
       <div className="bg-p-primary h-screen overflow-hidden">
@@ -15,10 +21,10 @@ const HomeLayout = ({ children, setIsToolbarOpen, isToolbarOpen }) => {
         <NavLeft
           isToolbarOpen={isToolbarOpen}
           setIsToolbarOpen={setIsToolbarOpen}
+          collapsed={collapsed}
+          setCollapsed={setCollapsed}
         />
-        <div className="border flex h-full md:ml-60 border-red-500">
-          {children}
-        </div>
+        <div className="border flex h-full md:ml-60 ">{children}</div>
       </div>
     </>
   );

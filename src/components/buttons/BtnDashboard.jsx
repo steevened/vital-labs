@@ -2,9 +2,11 @@ import React from 'react';
 
 const BtnDashboard = ({ children }) => {
   return (
-    <button className="btn btn-block shadow-lg hover:rounded-none active:rounded-none focus:bg-primary-focus focus:rounded-none transition-all btn-primary flex gap-2 duration-500">
+    <div
+      className={`cursor-pointer flex transition-all duration-100 w-full py-2 px-4 gap-2  text-base font-semibold focus:active hover:active`}
+    >
       {children}
-    </button>
+    </div>
   );
 };
 

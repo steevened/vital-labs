@@ -5,9 +5,9 @@ module.exports = {
     extend: {
       colors: {
         'p-primary': '#f5f7fa',
-        'p-from': '#eef2f3',
+        'p-from': '#FFFFFF',
         'p-bw': '#d9e0e3',
-        'p-to': '#8e9eab',
+        'p-to': '#6DD5FA',
       },
     },
   },
