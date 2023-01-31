@@ -52,12 +52,7 @@ const NavLeft = ({
             <p>Tablero</p>
           </BtnDashboard>
         </li>
-        <li
-          onClick={() => {
-            setIsToolbarOpen(false);
-          }}
-          className={`w-full group`}
-        >
+        <li className={`w-full group`}>
           <input
             className="appearance-none"
             type="checkbox"

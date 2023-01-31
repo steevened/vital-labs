@@ -8,7 +8,13 @@ const CatalogoAccordion = ({ collapsed }) => {
 
   return (
     <ul>
-      <li>
+      <li
+        onClick={() => {
+          navigate('/medicos');
+          collapsed(true);
+        }}
+        className={`w-full ${location.pathname === '/medicos' ? 'active' : ''}`}
+      >
         <BtnDashboard>Medicos</BtnDashboard>
       </li>
       <li
@@ -22,7 +28,15 @@ const CatalogoAccordion = ({ collapsed }) => {
       >
         <BtnDashboard>Pacientes</BtnDashboard>
       </li>
-      <li>
+      <li
+        onClick={() => {
+          navigate('/usuarios');
+          collapsed(true);
+        }}
+        className={`w-full ${
+          location.pathname === '/usuarios' ? 'active' : ''
+        }`}
+      >
         <BtnDashboard>Usuarios</BtnDashboard>
       </li>
     </ul>

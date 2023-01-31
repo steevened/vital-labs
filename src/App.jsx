@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import HomePage from './pages/HomePage';
 import Pacientes from './pages/catalogo/Pacientes';
 import HomeLayout from './layouts/HomeLayout';
+import Medicos from './pages/catalogo/Medicos';
+import Usuarios from './pages/catalogo/Usuarios';
 
 function App() {
   const [isToolbarOpen, setIsToolbarOpen] = useState(false);
@@ -31,6 +33,28 @@ function App() {
               path="/pacientes"
               element={
                 <Pacientes
+                  isToolbarOpen={isToolbarOpen}
+                  setIsToolbarOpen={setIsToolbarOpen}
+                  collapsed={collapsed}
+                  setCollapsed={setCollapsed}
+                />
+              }
+            />
+            <Route
+              path="/medicos"
+              element={
+                <Medicos
+                  isToolbarOpen={isToolbarOpen}
+                  setIsToolbarOpen={setIsToolbarOpen}
+                  collapsed={collapsed}
+                  setCollapsed={setCollapsed}
+                />
+              }
+            />
+            <Route
+              path="/usuarios"
+              element={
+                <Usuarios
                   isToolbarOpen={isToolbarOpen}
                   setIsToolbarOpen={setIsToolbarOpen}
                   collapsed={collapsed}

@@ -1,6 +1,7 @@
-import HomeLayout from '../layouts/HomeLayout';
+import React from 'react';
+import HomeLayout from '../../layouts/HomeLayout';
 
-const HomePage = ({
+const Usuarios = ({
   isToolbarOpen,
   setIsToolbarOpen,
   collapsed,
@@ -13,9 +14,9 @@ const HomePage = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
     >
-      <div className="flex items-center justify-center w-full">tablero</div>
+      <div className="flex items-center justify-center w-full">Usuarios</div>
     </HomeLayout>
   );
 };
 
-export default HomePage;
+export default Usuarios;
