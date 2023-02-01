@@ -1,14 +1,18 @@
-import React from 'react';
 import HomeLayout from '../../layouts/HomeLayout';
 import MedicosTable from '../../components/tables/medicos/Medicos';
-import BtnCircle from '../../components/buttons/BtnCircle';
 import BtnContent from '../../components/buttons/BtnContent';
+import ModalMedico from '../../components/modals/Medicos/ModalMedico';
+import ModalOverlay from '../../components/modals/ModalOverlay';
+import { useState } from 'react';
+
 const Medicos = ({
   isToolbarOpen,
   setIsToolbarOpen,
   collapsed,
   setCollapsed,
 }) => {
+  const [addMedicModalShowed, setAddMedicModalShowed] = useState(true);
+
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
@@ -17,7 +21,10 @@ const Medicos = ({
       setCollapsed={setCollapsed}
     >
       <div className="flex items-center justify-center w-[90%] mx-auto flex-col gap-10">
-        <div className="flex items-center justify-center ">
+        <div
+          onClick={() => setAddMedicModalShowed(true)}
+          className="flex items-center justify-center border border-red-500"
+        >
           <BtnContent>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +40,11 @@ const Medicos = ({
         </div>
         <MedicosTable />
       </div>
+      <ModalOverlay
+        modalShowed={addMedicModalShowed}
+        setModalShowed={setAddMedicModalShowed}
+      />
+      <ModalMedico modalShowed={addMedicModalShowed} />
     </HomeLayout>
   );
 };
