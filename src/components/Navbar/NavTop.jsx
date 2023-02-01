@@ -12,8 +12,8 @@ const NavTop = ({ setIsToolbarOpen }) => {
   };
 
   return (
-    <nav className="flex justify-between w-full md:ml-60 h-14 items-center px-5  ">
-      <div className="md:hidden">
+    <nav className="absolute bg-base-200 shadow-lg flex w-calc md:right-0 h-14 items-center">
+      <div className="md:hidden absolute left-7">
         <BtnCircle btnAction={() => setIsToolbarOpen(true)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,10 @@ const NavTop = ({ setIsToolbarOpen }) => {
           </svg>
         </BtnCircle>
       </div>
-      <form onSubmit={handleSearch} className="relative">
+      <form
+        onSubmit={handleSearch}
+        className="absolute -translate-x-1/2 left-1/2 md:translate-x-0 md:left-7"
+      >
         <input
           placeholder="Buscar"
           className="focus:outline-none shadow-lg  py-1 pl-10 bg-base-100 w-40 sm:w-60 md:w-80 rounded-full"
@@ -55,7 +58,7 @@ const NavTop = ({ setIsToolbarOpen }) => {
           </svg>
         </div>
       </form>
-      <div className="md:absolute md:right-5">
+      <div className="absolute right-7">
         <div className="dropdown dropdown-end">
           <label tabIndex={0}>
             <BtnCircle>

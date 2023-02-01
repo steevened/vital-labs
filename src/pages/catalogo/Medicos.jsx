@@ -22,7 +22,7 @@ const Medicos = ({
               Añadir{' '}
             </button>
           </div>
-          <MedicosTable />
+          <MedicosTable collapsed={collapsed} />
         </div>
       </div>
     </HomeLayout>

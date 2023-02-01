@@ -15,3 +15,13 @@ html {
 .ReactCollapse--collapse {
   transition: height 500ms;
 }
+
+.w-calc {
+  width: calc(100% - 240px);
+}
+
+@media (max-width: 768px) {
+  .w-calc {
+    width: 100%;
+  }
+}

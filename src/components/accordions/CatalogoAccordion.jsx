@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BtnDashboard from '../buttons/BtnDashboard';
 
-const CatalogoAccordion = ({ collapsed }) => {
+const CatalogoAccordion = ({ collapsed, setCollapsed }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -11,7 +11,7 @@ const CatalogoAccordion = ({ collapsed }) => {
       <li
         onClick={() => {
           navigate('/medicos');
-          collapsed(true);
+          setCollapsed(true);
         }}
         className={`w-full ${location.pathname === '/medicos' ? 'active' : ''}`}
       >
@@ -23,7 +23,7 @@ const CatalogoAccordion = ({ collapsed }) => {
         }`}
         onClick={() => {
           navigate('/pacientes');
-          collapsed(true);
+          setCollapsed(true);
         }}
       >
         <BtnDashboard>Pacientes</BtnDashboard>
@@ -31,7 +31,7 @@ const CatalogoAccordion = ({ collapsed }) => {
       <li
         onClick={() => {
           navigate('/usuarios');
-          collapsed(true);
+          setCollapsed(true);
         }}
         className={`w-full ${
           location.pathname === '/usuarios' ? 'active' : ''

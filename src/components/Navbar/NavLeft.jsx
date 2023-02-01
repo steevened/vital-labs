@@ -92,7 +92,10 @@ const NavLeft = ({
             </BtnDashboard>
           </label>
           <Collapse isOpened={collapsed}>
-            <CatalogoAccordion collapsed={collapsed} />
+            <CatalogoAccordion
+              setCollapsed={setCollapsed}
+              collapsed={collapsed}
+            />
           </Collapse>
         </li>
 
