@@ -3,7 +3,7 @@ import db from '../../../../db.json';
 
 import BtnContentSm from '../../buttons/BtnContentSm';
 
-const Medicos = ({ collapsed }) => {
+const Medicos = () => {
   useEffect(() => {
     console.log(db.medicos);
   }, []);

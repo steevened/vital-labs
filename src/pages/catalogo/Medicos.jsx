@@ -31,7 +31,7 @@ const Medicos = ({
             <span>Añadir</span>
           </BtnContent>
         </div>
-        <MedicosTable collapsed={collapsed} />
+        <MedicosTable />
       </div>
     </HomeLayout>
   );
