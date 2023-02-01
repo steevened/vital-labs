@@ -24,7 +24,7 @@ const HomeLayout = ({
           collapsed={collapsed}
           setCollapsed={setCollapsed}
         />
-        <div className="h-full flex md:ml-60 pt-10 bg-base-300">{children}</div>
+        <div className="h-full flex md:ml-60 pt-14 bg-base-300">{children}</div>
       </div>
     </>
   );
