@@ -12,7 +12,7 @@ const HomeLayout = ({
 }) => {
   return (
     <>
-      <div className="bg-p-primary h-screen overflow-hidden">
+      <div className="bg-base-200 h-screen overflow-hidden">
         <NavTop setIsToolbarOpen={setIsToolbarOpen} />
         <Overlay
           isToolbarOpen={isToolbarOpen}
@@ -24,7 +24,7 @@ const HomeLayout = ({
           collapsed={collapsed}
           setCollapsed={setCollapsed}
         />
-        <div className="border flex h-full md:ml-60 ">{children}</div>
+        <div className="flex h-full md:ml-60 bg-base-100">{children}</div>
       </div>
     </>
   );

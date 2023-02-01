@@ -7,7 +7,7 @@ module.exports = {
         'p-primary': '#f5f7fa',
         'p-from': '#FFFFFF',
         'p-bw': '#d9e0e3',
-        'p-to': '#6DD5FA',
+        'p-to': '#00a99d;',
       },
     },
   },
