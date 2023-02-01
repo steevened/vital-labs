@@ -11,7 +11,7 @@ const Medicos = ({
   collapsed,
   setCollapsed,
 }) => {
-  const [addMedicModalShowed, setAddMedicModalShowed] = useState(true);
+  const [addMedicModalShowed, setAddMedicModalShowed] = useState(false);
 
   return (
     <HomeLayout
@@ -23,7 +23,7 @@ const Medicos = ({
       <div className="flex items-center justify-center w-[90%] mx-auto flex-col gap-10">
         <div
           onClick={() => setAddMedicModalShowed(true)}
-          className="flex items-center justify-center border border-red-500"
+          className="flex items-center justify-center "
         >
           <BtnContent>
             <svg
