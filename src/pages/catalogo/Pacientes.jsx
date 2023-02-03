@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ModalOverlay from '../../components/modals/ModalOverlay';
 import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
 
@@ -28,6 +29,10 @@ const Pacientes = ({
           setAddPersonModalShowed={setAddPersonModalShowed}
         />
       </div>
+      <ModalOverlay
+        modalShowed={addPersonModalShowed}
+        setModalShowed={setAddPersonModalShowed}
+      />
     </HomeLayout>
   );
 };

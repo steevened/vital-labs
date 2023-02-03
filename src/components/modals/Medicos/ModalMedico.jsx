@@ -24,18 +24,18 @@ const ModalMedico = ({ modalShowed }) => {
                 input="input"
                 spam={true}
               />
-              <InputForm type="text" label="RUC" input="input" spam={true} />
+              <InputForm type="number" label="RUC" input="input" spam={true} />
               <InputForm
-                type="text"
+                type="number"
                 label="№ Folio"
                 input="input"
                 spam={true}
               />
               <div className="col-span-2">
                 <InputForm
-                  type="text"
+                  type="number"
                   label="№ Registro Senescyt"
-                  input="input"
+                  input="number"
                   spam={true}
                 />
               </div>
