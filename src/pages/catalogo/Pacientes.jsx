@@ -10,15 +10,23 @@ const Pacientes = ({
 }) => {
   const [addPersonModalShowed, setAddPersonModalShowed] = useState(false);
 
+  const [searchInput, setSearchInput] = useState('');
+
+  console.log(searchInput);
+
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
       setIsToolbarOpen={setIsToolbarOpen}
       collapsed={collapsed}
       setCollapsed={setCollapsed}
+      setSearchInput={setSearchInput}
     >
       <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
-        <PacientesTable setAddPersonModalShowed={setAddPersonModalShowed} />
+        <PacientesTable
+          searchInput={searchInput}
+          setAddPersonModalShowed={setAddPersonModalShowed}
+        />
       </div>
     </HomeLayout>
   );

@@ -9,11 +9,15 @@ const HomeLayout = ({
   isToolbarOpen,
   collapsed,
   setCollapsed,
+  setSearchInput,
 }) => {
   return (
     <>
       <div className="h-screen overflow-hidden">
-        <NavTop setIsToolbarOpen={setIsToolbarOpen} />
+        <NavTop
+          setIsToolbarOpen={setIsToolbarOpen}
+          setSearchInput={setSearchInput}
+        />
         <Overlay
           isToolbarOpen={isToolbarOpen}
           setIsToolbarOpen={setIsToolbarOpen}

@@ -2,7 +2,7 @@ import React from 'react';
 import BtnCircle from '../buttons/BtnCircle';
 import { Link } from 'react-router-dom';
 
-const NavTop = ({ setIsToolbarOpen }) => {
+const NavTop = ({ setIsToolbarOpen, setSearchInput }) => {
   const handleSearch = (e) => {
     e.preventDefault();
   };
@@ -36,6 +36,7 @@ const NavTop = ({ setIsToolbarOpen }) => {
         className="absolute -translate-x-1/2 left-1/2 md:translate-x-0 md:left-7"
       >
         <input
+          onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Buscar"
           className="focus:outline-none shadow-lg  py-1 pl-10 bg-base-100 w-40 sm:w-60 md:w-80 rounded-full"
           type="text"
