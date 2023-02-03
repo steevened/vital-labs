@@ -32,6 +32,7 @@ export default function PacientesTable({
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>№ cédula</th>
+            <th>№ historial</th>
             <th>estado civil</th>
             <th>sexo</th>
             <th>nacimiento</th>
@@ -61,6 +62,7 @@ export default function PacientesTable({
                 <td>{paciente.nombres}</td>
                 <td>{paciente.apellidos}</td>
                 <td>{paciente.cedula}</td>
+                <td>{paciente.historial}</td>
                 <td>{paciente.civil}</td>
                 <td>{paciente.sexo}</td>
                 <td>{paciente.nacimiento}</td>

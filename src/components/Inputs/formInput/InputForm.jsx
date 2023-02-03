@@ -1,11 +1,16 @@
 import React from 'react';
 
-export default function InputForm({ label, type, input, spam }) {
+export default function InputForm({ label, type, input, spam, cols }) {
+  console.log(spam);
   return (
-    <div className={`flex flex-col w-full`}>
+    <div
+      className={`flex flex-col w-full col-span-2 sm:col-span-${
+        !cols || cols === 1 ? '1' : cols
+      }`}
+    >
       <label className="text-sm flex items-center m-1">
         <p>{label}</p>
-        {spam && <span className="text-red-500">*</span>}
+        {spam === true && <span className="text-red-500">*</span>}
       </label>
       <input
         type={type}
