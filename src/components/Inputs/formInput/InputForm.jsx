@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function InputForm({ label, type, input, spam, cols }) {
-  console.log(spam);
   return (
     <div
       className={`flex flex-col w-full col-span-2 sm:col-span-${

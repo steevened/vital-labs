@@ -323,5 +323,42 @@
       "nacimiento": "02/02/1990",
       "direccion": "direccion 15"
     }
+  ],
+  "usuarios": [
+    {
+      "username": "username 1",
+      "names": "nombres 1",
+      "email": "email1@mail.com",
+      "cargo": "cargo 1",
+      "rol": "rol 1"
+    },
+    {
+      "username": "username 2",
+      "names": "nombres 2",
+      "email": "email2@mail.com",
+      "cargo": "cargo 2",
+      "rol": "rol 2"
+    },
+    {
+      "username": "username 3",
+      "names": "nombres 3",
+      "email": "email3@mail.com",
+      "cargo": "cargo 3",
+      "rol": "rol 3"
+    },
+    {
+      "username": "username 4",
+      "names": "nombres 4",
+      "email": "email4@mail.com",
+      "cargo": "cargo 4",
+      "rol": "rol 4"
+    },
+    {
+      "username": "username 5",
+      "names": "nombres 5",
+      "email": "email5@mail.com",
+      "cargo": "cargo 5",
+      "rol": "rol 5"
+    }
   ]
 }

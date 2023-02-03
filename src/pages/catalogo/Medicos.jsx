@@ -13,15 +13,21 @@ const Medicos = ({
 }) => {
   const [addMedicModalShowed, setAddMedicModalShowed] = useState(false);
 
+  const [searchInput, setSearchInput] = useState('');
+
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
       setIsToolbarOpen={setIsToolbarOpen}
       collapsed={collapsed}
       setCollapsed={setCollapsed}
+      setSearchInput={setSearchInput}
     >
       <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
-        <MedicosTable setAddMedicModalShowed={setAddMedicModalShowed} />
+        <MedicosTable
+          searchInput={searchInput}
+          setAddMedicModalShowed={setAddMedicModalShowed}
+        />
       </div>
       <ModalOverlay
         modalShowed={addMedicModalShowed}
