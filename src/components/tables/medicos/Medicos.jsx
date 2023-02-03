@@ -5,9 +5,6 @@ import BtnContent from '../../buttons/BtnContent';
 import BtnContentSm from '../../buttons/BtnContentSm';
 
 const Medicos = ({ setAddMedicModalShowed }) => {
-  useEffect(() => {
-    console.log(db.medicos);
-  }, []);
   return (
     <div className="overflow-x-auto h-[90%] shadow-lg w-full">
       <table className="table  w-full">
@@ -44,7 +41,7 @@ const Medicos = ({ setAddMedicModalShowed }) => {
             <tr>
               <th className="relative">
                 <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  {i}
+                  {i + 1}
                 </p>
               </th>
               <td>{medico.nombres}</td>

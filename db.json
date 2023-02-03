@@ -171,5 +171,142 @@
       "especialidad": "especialidad 18",
       "access": "registro access 18"
     }
+  ],
+  "pacientes": [
+    {
+      "nombres": "paciente 1",
+      "apellidos": "apellido 1",
+      "cedula": "1111111111",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 1"
+    },
+    {
+      "nombres": "paciente 2",
+      "apellidos": "apellido 2",
+      "cedula": "2222222222",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 2"
+    },
+    {
+      "nombres": "paciente 3",
+      "apellidos": "apellido 3",
+      "cedula": "3333333333",
+      "civil": "soltero",
+      "sexo": "femenino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 3"
+    },
+    {
+      "nombres": "paciente 4",
+      "apellidos": "apellido 4",
+      "cedula": "4444444444",
+      "civil": "soltero",
+      "sexo": "femenino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 4"
+    },
+    {
+      "nombres": "paciente 5",
+      "apellidos": "apellido 5",
+      "cedula": "5555555555",
+      "civil": "casado",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 5"
+    },
+    {
+      "nombres": "paciente 6",
+      "apellidos": "apellido 6",
+      "cedula": "666666666",
+      "civil": "soltero",
+      "sexo": "femenino",
+      "nacimiento": "02/12/0990",
+      "direccion": "direccion 6"
+    },
+    {
+      "nombres": "paciente 7",
+      "apellidos": "apellido 7",
+      "cedula": "7777777777",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 7"
+    },
+    {
+      "nombres": "paciente 8",
+      "apellidos": "apellido 8",
+      "cedula": "8888888888",
+      "civil": "casado",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 8"
+    },
+    {
+      "nombres": "paciente 9",
+      "apellidos": "apellido 9",
+      "cedula": "9999999999",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 9"
+    },
+    {
+      "nombres": "paciente 10",
+      "apellidos": "apellido 10",
+      "cedula": "1010101010",
+      "civil": "casado",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 10"
+    },
+    {
+      "nombres": "paciente 11",
+      "apellidos": "apellido 11",
+      "cedula": "11111111112",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 11"
+    },
+    {
+      "nombres": "paciente 12",
+      "apellidos": "apellido 12",
+      "cedula": "1212121212",
+      "civil": "casado",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 12"
+    },
+    {
+      "nombres": "paciente 13",
+      "apellidos": "apellido 13",
+      "cedula": "1313131313",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 13"
+    },
+    {
+      "nombres": "paciente 14",
+      "apellidos": "apellido 14",
+      "cedula": "1414141414",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 14"
+    },
+    {
+      "nombres": "paciente 15",
+      "apellidos": "apellido 15",
+      "cedula": "1515151515",
+      "civil": "soltero",
+      "sexo": "masculino",
+      "nacimiento": "02/02/1990",
+      "direccion": "direccion 15"
+    }
   ]
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import { useState } from 'react';
+import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
 
 const Pacientes = ({
@@ -7,6 +8,8 @@ const Pacientes = ({
   collapsed,
   setCollapsed,
 }) => {
+  const [addPersonModalShowed, setAddPersonModalShowed] = useState(false);
+
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
@@ -14,8 +17,8 @@ const Pacientes = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
     >
-      <div className="flex items-center justify-center w-[95%] mx-auto flex-col border-2 border-base-100">
-        Pacientes
+      <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
+        <PacientesTable setAddPersonModalShowed={setAddPersonModalShowed} />
       </div>
     </HomeLayout>
   );
