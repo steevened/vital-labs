@@ -1,4 +1,5 @@
 import React from 'react';
+import BtnContent from '../../buttons/BtnContent';
 import InputForm from '../../Inputs/formInput/InputForm';
 import ModalContainer from '../ModalContainer';
 
@@ -8,9 +9,9 @@ const ModalMedico = ({ modalShowed }) => {
       <div className="bg-base-200 w-full h-full p-3">
         <h2 className="text-center text-2xl font-semibold">Añadir Médico</h2>
         <div className="divider mt-2"></div>
-        <form className="px-2">
+        <form className="px-2 ">
           <div className=" flex items-center justify-between">
-            <div className="form-group grid grid-cols-2 w-full gap-y-5 gap-x-3">
+            <div className="form-group grid grid-cols-2 w-full gap-y-2 md:gap-y-5 gap-x-3">
               <InputForm
                 type="text"
                 label="Nombres"
@@ -38,21 +39,25 @@ const ModalMedico = ({ modalShowed }) => {
                   spam={true}
                 />
               </div>
+              <div className="col-span-2 sm:col-span-1">
+                <InputForm
+                  type="file"
+                  label="Registro Senescyt"
+                  input="file-input"
+                  spam={false}
+                />
+              </div>
 
-              <InputForm
-                type="file"
-                label="Registro Senescyt"
-                input="file-input"
-                spam={false}
-              />
-              <InputForm
-                type="file"
-                label="Registro Access"
-                input="file-input"
-                spam={false}
-              />
+              <div className="col-span-2 sm:col-span-1">
+                <InputForm
+                  type="file"
+                  label="Registro Access"
+                  input="file-input"
+                  spam={false}
+                />
+              </div>
 
-              <select className="select select-sm select-bordered w-full col-span-2 mt-5">
+              <select className="select select-sm select-bordered w-full col-span-2 mt-3 shadow-base-300 shadow-lg">
                 <option disabled selected>
                   Especialidad
                   <span className="text-red-500">*</span>
@@ -69,6 +74,9 @@ const ModalMedico = ({ modalShowed }) => {
                 <option>especialidad 10</option>
               </select>
             </div>
+          </div>
+          <div className="flex items-center justify-center py-5">
+            <BtnContent type="submit">Confirmar</BtnContent>
           </div>
         </form>
       </div>

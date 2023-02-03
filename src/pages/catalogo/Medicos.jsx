@@ -20,7 +20,7 @@ const Medicos = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
     >
-      <div className="flex items-center justify-center w-[95%] mx-auto flex-col gap-10">
+      <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
         <MedicosTable setAddMedicModalShowed={setAddMedicModalShowed} />
       </div>
       <ModalOverlay

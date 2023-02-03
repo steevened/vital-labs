@@ -14,7 +14,9 @@ const Pacientes = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
     >
-      <div className="flex items-center justify-center w-full">Pacientes</div>
+      <div className="flex items-center justify-center w-[95%] mx-auto flex-col border-2 border-base-100">
+        Pacientes
+      </div>
     </HomeLayout>
   );
 };

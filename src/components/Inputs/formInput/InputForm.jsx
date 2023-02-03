@@ -11,10 +11,10 @@ export default function InputForm({ label, type, input, spam }) {
         type={type}
         className={`${input} ${
           input === 'file-input'
-            ? 'file-input-sm file-input-info file-input-bordered'
+            ? 'file-input-sm file-input-info file-input-bordered  '
             : 'input-sm'
-        }  outline-none input-bordered focus:outline-none focus:ring focus:ring-neutral-content rounded-md`}
-        required={true}
+        }  outline-none input-bordered focus:outline-none focus:ring focus:ring-neutral-content rounded-md shadow-base-300 shadow-lg`}
+        required={spam}
       />
     </div>
   );
