@@ -4,6 +4,8 @@ import BtnContent from '../../components/buttons/BtnContent';
 import ModalMedico from '../../components/modals/Medicos/ModalMedico';
 import ModalOverlay from '../../components/modals/ModalOverlay';
 import { useState } from 'react';
+import BtnAdd from '../../components/buttons/BtnAdd';
+import BtnContainer from '../../components/buttons/BtnContainer';
 
 const Medicos = ({
   isToolbarOpen,
@@ -22,6 +24,7 @@ const Medicos = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
       setSearchInput={setSearchInput}
+      setShowModal={setAddMedicModalShowed}
     >
       <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
         <MedicosTable
@@ -34,6 +37,7 @@ const Medicos = ({
         setModalShowed={setAddMedicModalShowed}
       />
       <ModalMedico modalShowed={addMedicModalShowed} />
+      <BtnContainer setShowModal={setAddMedicModalShowed} />
     </HomeLayout>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BtnContainer from '../../components/buttons/BtnContainer';
 import ModalOverlay from '../../components/modals/ModalOverlay';
 import ModalPacientes from '../../components/modals/Pacientes/ModalPacientes';
 import PacientesTable from '../../components/tables/pacientes/PacientesTable';
@@ -14,8 +15,6 @@ const Pacientes = ({
 
   const [searchInput, setSearchInput] = useState('');
 
-  console.log(searchInput);
-
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
@@ -23,6 +22,7 @@ const Pacientes = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
       setSearchInput={setSearchInput}
+      setShowModal={setAddPersonModalShowed}
     >
       <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
         <PacientesTable
@@ -35,6 +35,7 @@ const Pacientes = ({
         setModalShowed={setAddPersonModalShowed}
       />
       <ModalPacientes modalShowed={addPersonModalShowed} />
+      <BtnContainer setShowModal={setAddPersonModalShowed} />
     </HomeLayout>
   );
 };

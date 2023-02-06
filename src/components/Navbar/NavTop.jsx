@@ -1,8 +1,9 @@
 import React from 'react';
 import BtnCircle from '../buttons/BtnCircle';
 import { Link } from 'react-router-dom';
+import BtnAdd from '../buttons/BtnAdd';
 
-const NavTop = ({ setIsToolbarOpen, setSearchInput }) => {
+const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
   const handleSearch = (e) => {
     e.preventDefault();
   };
@@ -38,7 +39,7 @@ const NavTop = ({ setIsToolbarOpen, setSearchInput }) => {
         <input
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Buscar"
-          className="focus:outline-none shadow-lg  py-1 pl-10 bg-base-100 w-40 sm:w-60 md:w-80 rounded-full"
+          className="focus:outline-none shadow-lg  py-1 pl-10 bg-base-100 w-40 sm:w-60 md:w-64 rounded-full"
           type="text"
           id="search"
         />
@@ -59,6 +60,9 @@ const NavTop = ({ setIsToolbarOpen, setSearchInput }) => {
           </svg>
         </div>
       </form>
+      <div className="z-20 scale-0 md:scale-100 absolute -translate-x-1/2 left-2/3 lg:left-1/2">
+        <BtnAdd setShowModal={setShowModal} />
+      </div>
       <div className="absolute right-7">
         <div className="dropdown dropdown-end">
           <label tabIndex={0}>

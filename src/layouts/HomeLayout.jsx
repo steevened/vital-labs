@@ -10,6 +10,7 @@ const HomeLayout = ({
   collapsed,
   setCollapsed,
   setSearchInput,
+  setShowModal,
 }) => {
   return (
     <>
@@ -17,6 +18,7 @@ const HomeLayout = ({
         <NavTop
           setIsToolbarOpen={setIsToolbarOpen}
           setSearchInput={setSearchInput}
+          setShowModal={setShowModal}
         />
         <Overlay
           isToolbarOpen={isToolbarOpen}
