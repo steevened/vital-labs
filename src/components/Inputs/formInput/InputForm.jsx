@@ -3,7 +3,7 @@ import React from 'react';
 export default function InputForm({ label, type, input, spam, cols }) {
   return (
     <div
-      className={`flex flex-col w-full col-span-2 sm:col-span-${
+      className={`flex flex-col w-full cols  cols-${
         !cols || cols === 1 ? '1' : cols
       }`}
     >

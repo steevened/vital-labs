@@ -6,7 +6,13 @@ import ModalContainer from '../ModalContainer';
 const ModalMedico = ({ modalShowed }) => {
   return (
     <ModalContainer modalShowed={modalShowed} title="Añadir Médico">
-      <InputForm type="text" label="Nombres" input="input" spam={true} />
+      <InputForm
+        type="text"
+        label="Nombres"
+        input="input"
+        spam={true}
+        cols={1}
+      />
       <InputForm type="text" label="Apellidos" input="input" spam={true} />
       <InputForm type="number" label="RUC" input="input" spam={true} />
       <InputForm type="number" label="№ Folio" input="input" spam={true} />
@@ -16,6 +22,7 @@ const ModalMedico = ({ modalShowed }) => {
         label="№ Registro Senescyt"
         input="number"
         spam={true}
+        cols={2}
       />
 
       <InputForm
