@@ -524,6 +524,14 @@
       "email": "email5@mail.com",
       "cargo": "cargo 5",
       "rol": "rol 5"
+    },
+    {
+      "username": "username 6",
+      "names": "names 6",
+      "email": "email6@mail.com",
+      "cargo": "cargo 2",
+      "rol": "Rol 2",
+      "id": 6
     }
   ]
 }

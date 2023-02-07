@@ -21,4 +21,13 @@ export const destroyMedico = async ({ id }) => {
   return await api.delete(`/medicos/${id}`, id);
 };
 
+export const getUsers = async () => {
+  const response = await api.get('/usuarios');
+  return response.data;
+};
+
+export const addUser = async (user) => {
+  return await api.post('/usuarios', user);
+};
+
 export default api;

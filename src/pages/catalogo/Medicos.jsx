@@ -29,15 +29,6 @@ const Medicos = ({
   const [senescyt, setSenescyt] = useState('');
   const [especialidad, setEspecialidad] = useState('');
 
-  console.log({
-    nombres,
-    apellidos,
-    ruc,
-    folio,
-    senescyt,
-    especialidad,
-  });
-
   const queryClient = useQueryClient();
 
   const { isLoading, error, data: medicos } = useQuery('medicos', getMedicos);
@@ -63,6 +54,15 @@ const Medicos = ({
     },
   });
 
+  const cleanValues = () => {
+    setNombres('');
+    setApellidos('');
+    setRuc('');
+    setFolio('');
+    setSenescyt('');
+    setEspecialidad('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -74,13 +74,9 @@ const Medicos = ({
       especialidad,
     };
     addMedicoMutation.mutate(data);
+    cleanValues();
     setAddMedicModalShowed(false);
-    setNombres('');
-    setApellidos('');
-    setRuc('');
-    setFolio('');
-    setSenescyt('');
-    setEspecialidad('');
+
     toast.success('Añadido correctamente!');
   };
 
