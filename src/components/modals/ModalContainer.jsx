@@ -1,7 +1,7 @@
 import React from 'react';
 import BtnContent from '../buttons/BtnContent';
 
-const ModalContainer = ({ children, modalShowed, title }) => {
+const ModalContainer = ({ children, modalShowed, title, setModalShowed }) => {
   return (
     <div
       className={`absolute overflow-auto  rounded-md shadow-lg shadow-base-content/30  -translate-x-1/2 -translate-y-1/2 w-5/6 h-fit max-h-[600px] left-1/2 z-50 max-w-lg transition-all duration-300 ${
@@ -17,8 +17,11 @@ const ModalContainer = ({ children, modalShowed, title }) => {
               {children}
             </div>
           </div>
-          <div className="flex items-center justify-center py-5">
+          <div className="flex items-center justify-center py-5 gap-10">
             <BtnContent type="submit">Confirmar</BtnContent>
+            <BtnContent cancel={true} setModalShowed={setModalShowed}>
+              Cancelar
+            </BtnContent>
           </div>
         </form>
       </div>

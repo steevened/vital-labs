@@ -2,9 +2,13 @@ import InputForm from '../../Inputs/formInput/InputForm';
 import SelectModal from '../../selects/SelectModal';
 import ModalContainer from '../ModalContainer';
 
-export default function ModalPacientes({ modalShowed }) {
+export default function ModalPacientes({ modalShowed, setShowModal }) {
   return (
-    <ModalContainer title="Añadir paciente" modalShowed={modalShowed}>
+    <ModalContainer
+      title="Añadir paciente"
+      modalShowed={modalShowed}
+      setModalShowed={setShowModal}
+    >
       <InputForm type="text" label="Nombres" input="input" spam={true} />
       <InputForm type="text" label="Apellidos" input="input" spam={true} />
       <InputForm type="number" label="№ Cédula" input="input" spam={true} />

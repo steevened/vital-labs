@@ -3,9 +3,13 @@ import InputForm from '../../Inputs/formInput/InputForm';
 import SelectModal from '../../selects/SelectModal';
 import ModalContainer from '../ModalContainer';
 
-export default function UsuariosModal({ modalShowed }) {
+export default function UsuariosModal({ modalShowed, setModalShowed }) {
   return (
-    <ModalContainer title="Añadir Usuarios" modalShowed={modalShowed}>
+    <ModalContainer
+      title="Añadir Usuarios"
+      modalShowed={modalShowed}
+      setModalShowed={setModalShowed}
+    >
       <InputForm type="text" label="Nombre de usuario" spam={true} />
       <InputForm type="email" label="Email" spam={true} />
       <InputForm type="text" label="Nombres" spam={true} cols="2" />

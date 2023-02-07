@@ -3,9 +3,13 @@ import SelectModal from '../../selects/SelectModal';
 import InputForm from '../../Inputs/formInput/InputForm';
 import ModalContainer from '../ModalContainer';
 
-const ModalMedico = ({ modalShowed }) => {
+const ModalMedico = ({ modalShowed, setModalShowed }) => {
   return (
-    <ModalContainer modalShowed={modalShowed} title="Añadir Médico">
+    <ModalContainer
+      modalShowed={modalShowed}
+      title="Añadir Médico"
+      setModalShowed={setModalShowed}
+    >
       <InputForm
         type="text"
         label="Nombres"

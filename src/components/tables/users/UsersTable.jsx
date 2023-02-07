@@ -3,7 +3,7 @@ import TableContainer from '../TableContainer';
 import BtnContent from '../../buttons/BtnContent';
 import db from '../../../../db.json';
 
-export default function UsersTable({ setShowModal, searchInput }) {
+export default function UsersTable({ searchInput, data }) {
   return (
     <TableContainer>
       <thead>
@@ -17,7 +17,7 @@ export default function UsersTable({ setShowModal, searchInput }) {
         </tr>
       </thead>
       <tbody>
-        {db.usuarios
+        {data
           .filter((usuario) => {
             return usuario.username
               .toLowerCase()
@@ -25,7 +25,7 @@ export default function UsersTable({ setShowModal, searchInput }) {
           })
           .map((usuario, i) => (
             <tr key={i}>
-              <th>{i + 1}</th>
+              <th>{usuario.id}</th>
               <td>{usuario.username}</td>
               <td>{usuario.names}</td>
               <td>{usuario.email}</td>

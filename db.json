@@ -1,6 +1,7 @@
 {
   "medicos": [
     {
+      "id": 1,
       "nombres": "nombre 1",
       "apellidos": "apellido 1",
       "RUC": "ruc 1",
@@ -10,6 +11,7 @@
       "access": "registro access 1"
     },
     {
+      "id": 2,
       "nombres": "nombre 2",
       "apellidos": "apellido 2",
       "RUC": "ruc 2",
@@ -19,6 +21,7 @@
       "access": "registro access 2"
     },
     {
+      "id": 3,
       "nombres": "nombre 3",
       "apellidos": "apellido 3",
       "RUC": "ruc 3",
@@ -28,6 +31,7 @@
       "access": "registro access 3"
     },
     {
+      "id": 4,
       "nombres": "nombre 4",
       "apellidos": "apellido 4",
       "RUC": "ruc 4",
@@ -37,6 +41,7 @@
       "access": "registro access 4"
     },
     {
+      "id": 5,
       "nombres": "nombre 4",
       "apellidos": "apellido 4",
       "RUC": "ruc 4",
@@ -46,6 +51,7 @@
       "access": "registro access 4"
     },
     {
+      "id": 6,
       "nombres": "nombre 5",
       "apellidos": "apellido 5",
       "RUC": "ruc 5",
@@ -55,6 +61,7 @@
       "access": "registro access 5"
     },
     {
+      "id": 7,
       "nombres": "nombre 6",
       "apellidos": "apellido 6",
       "RUC": "ruc 6",
@@ -64,6 +71,7 @@
       "access": "registro access 6"
     },
     {
+      "id": 8,
       "nombres": "nombre 7",
       "apellidos": "apellido 7",
       "RUC": "ruc 7",
@@ -73,6 +81,7 @@
       "access": "registro access 7"
     },
     {
+      "id": 9,
       "nombres": "nombre 8",
       "apellidos": "apellido 8",
       "RUC": "ruc 8",
@@ -82,6 +91,7 @@
       "access": "registro access 8"
     },
     {
+      "id": 10,
       "nombres": "nombre 9",
       "apellidos": "apellido 9",
       "RUC": "ruc 9",
@@ -91,6 +101,7 @@
       "access": "registro access 9"
     },
     {
+      "id": 11,
       "nombres": "nombre 10",
       "apellidos": "apellido 10",
       "RUC": "ruc 10",
@@ -100,6 +111,7 @@
       "access": "registro access 10"
     },
     {
+      "id": 12,
       "nombres": "nombre 11",
       "apellidos": "apellido 11",
       "RUC": "ruc 11",
@@ -109,6 +121,7 @@
       "access": "registro access 11"
     },
     {
+      "id": 13,
       "nombres": "nombre 12",
       "apellidos": "apellido 12",
       "RUC": "ruc 12",
@@ -118,6 +131,7 @@
       "access": "registro access 12"
     },
     {
+      "id": 14,
       "nombres": "nombre 13",
       "apellidos": "apellido 13",
       "RUC": "ruc 13",
@@ -127,6 +141,7 @@
       "access": "registro access 13"
     },
     {
+      "id": 15,
       "nombres": "nombre 14",
       "apellidos": "apellido 14",
       "RUC": "ruc 14",
@@ -136,6 +151,7 @@
       "access": "registro access 14"
     },
     {
+      "id": 16,
       "nombres": "nombre 15",
       "apellidos": "apellido 15",
       "RUC": "ruc 15",
@@ -145,6 +161,7 @@
       "access": "registro access 15"
     },
     {
+      "id": 17,
       "nombres": "nombre 16",
       "apellidos": "apellido 16",
       "RUC": "ruc 16",
@@ -154,6 +171,7 @@
       "access": "registro access 16"
     },
     {
+      "id": 18,
       "nombres": "nombre 17",
       "apellidos": "apellido 17",
       "RUC": "ruc 17",
@@ -163,6 +181,7 @@
       "access": "registro access 17"
     },
     {
+      "id": 19,
       "nombres": "nombre 18",
       "apellidos": "apellido 18",
       "RUC": "ruc 18",
@@ -174,6 +193,7 @@
   ],
   "pacientes": [
     {
+      "id": 1,
       "nombres": "paciente 1",
       "apellidos": "apellido 1",
       "cedula": "1111111111",
@@ -184,6 +204,7 @@
       "direccion": "direccion 1"
     },
     {
+      "id": 2,
       "nombres": "paciente 2",
       "apellidos": "apellido 2",
       "cedula": "2222222222",
@@ -194,6 +215,7 @@
       "direccion": "direccion 2"
     },
     {
+      "id": 3,
       "nombres": "paciente 3",
       "apellidos": "apellido 3",
       "cedula": "3333333333",
@@ -204,6 +226,7 @@
       "direccion": "direccion 3"
     },
     {
+      "id": 4,
       "nombres": "paciente 4",
       "apellidos": "apellido 4",
       "cedula": "4444444444",
@@ -214,6 +237,7 @@
       "direccion": "direccion 4"
     },
     {
+      "id": 5,
       "nombres": "paciente 5",
       "apellidos": "apellido 5",
       "cedula": "5555555555",
@@ -224,6 +248,7 @@
       "direccion": "direccion 5"
     },
     {
+      "id": 6,
       "nombres": "paciente 6",
       "apellidos": "apellido 6",
       "cedula": "666666666",
@@ -234,6 +259,7 @@
       "direccion": "direccion 6"
     },
     {
+      "id": 7,
       "nombres": "paciente 7",
       "apellidos": "apellido 7",
       "cedula": "7777777777",
@@ -244,6 +270,7 @@
       "direccion": "direccion 7"
     },
     {
+      "id": 8,
       "nombres": "paciente 8",
       "apellidos": "apellido 8",
       "cedula": "8888888888",
@@ -254,6 +281,7 @@
       "direccion": "direccion 8"
     },
     {
+      "id": 9,
       "nombres": "paciente 9",
       "apellidos": "apellido 9",
       "cedula": "9999999999",
@@ -264,6 +292,7 @@
       "direccion": "direccion 9"
     },
     {
+      "id": 10,
       "nombres": "paciente 10",
       "apellidos": "apellido 10",
       "cedula": "1010101010",
@@ -274,6 +303,7 @@
       "direccion": "direccion 10"
     },
     {
+      "id": 11,
       "nombres": "paciente 11",
       "apellidos": "apellido 11",
       "cedula": "11111111112",
@@ -284,6 +314,7 @@
       "direccion": "direccion 11"
     },
     {
+      "id": 12,
       "nombres": "paciente 12",
       "apellidos": "apellido 12",
       "cedula": "1212121212",
@@ -294,6 +325,7 @@
       "direccion": "direccion 12"
     },
     {
+      "id": 13,
       "nombres": "paciente 13",
       "apellidos": "apellido 13",
       "cedula": "1313131313",
@@ -304,6 +336,7 @@
       "direccion": "direccion 13"
     },
     {
+      "id": 14,
       "nombres": "paciente 14",
       "apellidos": "apellido 14",
       "cedula": "1414141414",
@@ -314,6 +347,7 @@
       "direccion": "direccion 14"
     },
     {
+      "id": 15,
       "nombres": "paciente 15",
       "apellidos": "apellido 15",
       "cedula": "1515151515",
@@ -326,6 +360,7 @@
   ],
   "usuarios": [
     {
+      "id": 1,
       "username": "username 1",
       "names": "nombres 1",
       "email": "email1@mail.com",
@@ -333,6 +368,7 @@
       "rol": "rol 1"
     },
     {
+      "id": 2,
       "username": "username 2",
       "names": "nombres 2",
       "email": "email2@mail.com",
@@ -340,6 +376,7 @@
       "rol": "rol 2"
     },
     {
+      "id": 3,
       "username": "username 3",
       "names": "nombres 3",
       "email": "email3@mail.com",
@@ -347,6 +384,7 @@
       "rol": "rol 3"
     },
     {
+      "id": 4,
       "username": "username 4",
       "names": "nombres 4",
       "email": "email4@mail.com",
@@ -354,6 +392,7 @@
       "rol": "rol 4"
     },
     {
+      "id": 5,
       "username": "username 5",
       "names": "nombres 5",
       "email": "email5@mail.com",

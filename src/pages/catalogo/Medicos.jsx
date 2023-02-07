@@ -1,11 +1,12 @@
 import HomeLayout from '../../layouts/HomeLayout';
 import MedicosTable from '../../components/tables/medicos/Medicos';
-import BtnContent from '../../components/buttons/BtnContent';
 import ModalMedico from '../../components/modals/Medicos/ModalMedico';
 import ModalOverlay from '../../components/modals/ModalOverlay';
 import { useState } from 'react';
-import BtnAdd from '../../components/buttons/BtnAdd';
 import BtnContainer from '../../components/buttons/BtnContainer';
+import { useQuery } from 'react-query';
+import { Oval } from 'react-loader-spinner';
+import MainLoader from '../../components/Loaders/MainLoader';
 
 const Medicos = ({
   isToolbarOpen,
@@ -14,8 +15,16 @@ const Medicos = ({
   setCollapsed,
 }) => {
   const [addMedicModalShowed, setAddMedicModalShowed] = useState(false);
-
   const [searchInput, setSearchInput] = useState('');
+
+  const fetchMedicos = () =>
+    fetch(' http://localhost:3000/medicos').then((res) => res.json());
+
+  const { isLoading, error, data } = useQuery('medicosData', fetchMedicos);
+
+  if (isLoading) return <MainLoader />;
+
+  if (error) return 'An error occurred: ' + error.message;
 
   return (
     <HomeLayout
@@ -26,17 +35,21 @@ const Medicos = ({
       setSearchInput={setSearchInput}
       setShowModal={setAddMedicModalShowed}
     >
-      <div className="flex items-center justify-center w-[95%] mx-auto flex-col">
+      <div className="flex items-center justify-start mt-12 w-[95%]  mx-auto flex-col ">
         <MedicosTable
           searchInput={searchInput}
           setAddMedicModalShowed={setAddMedicModalShowed}
+          data={data}
         />
       </div>
       <ModalOverlay
         modalShowed={addMedicModalShowed}
         setModalShowed={setAddMedicModalShowed}
       />
-      <ModalMedico modalShowed={addMedicModalShowed} />
+      <ModalMedico
+        modalShowed={addMedicModalShowed}
+        setModalShowed={setAddMedicModalShowed}
+      />
       <BtnContainer setShowModal={setAddMedicModalShowed} />
     </HomeLayout>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import BtnCircle from '../buttons/BtnCircle';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BtnAdd from '../buttons/BtnAdd';
 
 const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
@@ -11,6 +11,8 @@ const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
   const logOut = () => {
     localStorage.removeItem('username');
   };
+
+  const location = useLocation();
 
   return (
     <nav className="absolute bg-base-200 shadow-lg flex w-calc md:right-0 h-14 items-center">
@@ -60,7 +62,11 @@ const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
           </svg>
         </div>
       </form>
-      <div className="z-20 scale-0 md:scale-100 absolute -translate-x-1/2 left-2/3 lg:left-1/2">
+      <div
+        className={`z-20 scale-0 md:scale-100 absolute -translate-x-1/2 left-2/3 lg:left-1/2 ${
+          location.pathname === '/' ? 'hidden' : ''
+        }`}
+      >
         <BtnAdd setShowModal={setShowModal} />
       </div>
       <div className="absolute right-7">

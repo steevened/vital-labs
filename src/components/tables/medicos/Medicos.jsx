@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import db from '../../../../db.json';
-import BtnContent from '../../buttons/BtnContent';
-
+import { useQuery } from 'react-query';
 import BtnContentSm from '../../buttons/BtnContentSm';
 import TableContainer from '../TableContainer';
 
-const Medicos = ({ setAddMedicModalShowed, searchInput }) => {
+const Medicos = ({ searchInput, data }) => {
   return (
     <TableContainer>
       <thead>
@@ -21,7 +19,7 @@ const Medicos = ({ setAddMedicModalShowed, searchInput }) => {
         </tr>
       </thead>
       <tbody>
-        {db.medicos
+        {data
           .filter((medico) => {
             return (
               medico.nombres
@@ -35,9 +33,9 @@ const Medicos = ({ setAddMedicModalShowed, searchInput }) => {
                 .includes(searchInput.toLowerCase())
             );
           })
-          .map((medico, i) => (
-            <tr key={i}>
-              <th>{i + 1}</th>
+          .map((medico) => (
+            <tr key={medico.id}>
+              <th>{medico.id}</th>
               <td>{medico.nombres}</td>
               <td>{medico.apellidos}</td>
               <td>{medico.RUC}</td>

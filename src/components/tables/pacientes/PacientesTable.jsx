@@ -4,10 +4,7 @@ import BtnContentSm from '../../buttons/BtnContentSm';
 import db from '../../../../db.json';
 import TableContainer from '../TableContainer';
 
-export default function PacientesTable({
-  setAddPersonModalShowed,
-  searchInput,
-}) {
+export default function PacientesTable({ searchInput, data }) {
   return (
     <TableContainer>
       <thead>
@@ -24,7 +21,7 @@ export default function PacientesTable({
         </tr>
       </thead>
       <tbody>
-        {db.pacientes
+        {data
           .filter((paciente) => {
             return (
               paciente.nombres
@@ -38,7 +35,7 @@ export default function PacientesTable({
           })
           .map((paciente, i) => (
             <tr key={i}>
-              <th></th>
+              <th>{paciente.id}</th>
               <td>{paciente.nombres}</td>
               <td>{paciente.apellidos}</td>
               <td>{paciente.cedula}</td>
