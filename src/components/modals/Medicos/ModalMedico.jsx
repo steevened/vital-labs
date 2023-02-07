@@ -3,12 +3,29 @@ import SelectModal from '../../selects/SelectModal';
 import InputForm from '../../Inputs/formInput/InputForm';
 import ModalContainer from '../ModalContainer';
 
-const ModalMedico = ({ modalShowed, setModalShowed }) => {
+const ModalMedico = ({
+  modalShowed,
+  setModalShowed,
+  nombres,
+  apellidos,
+  ruc,
+  folio,
+  senescyt,
+  especialidad,
+  setNombres,
+  setApellidos,
+  setRuc,
+  setSenescyt,
+  setFolio,
+  setEspecialidad,
+  handleSubmit,
+}) => {
   return (
     <ModalContainer
       modalShowed={modalShowed}
       title="Añadir Médico"
       setModalShowed={setModalShowed}
+      handleSubmit={handleSubmit}
     >
       <InputForm
         type="text"
@@ -16,37 +33,61 @@ const ModalMedico = ({ modalShowed, setModalShowed }) => {
         input="input"
         spam={true}
         cols={1}
+        setField={setNombres}
+        value={nombres}
       />
-      <InputForm type="text" label="Apellidos" input="input" spam={true} />
-      <InputForm type="number" label="RUC" input="input" spam={true} />
-      <InputForm type="number" label="№ Folio" input="input" spam={true} />
+      <InputForm
+        type="text"
+        label="Apellidos"
+        input="input"
+        spam={true}
+        setField={setApellidos}
+        value={apellidos}
+      />
+      <InputForm
+        type="number"
+        label="RUC"
+        input="input"
+        spam={true}
+        setField={setRuc}
+        value={ruc}
+      />
 
+      <InputForm
+        type="number"
+        label="№ Folio"
+        input="input"
+        spam={true}
+        setField={setFolio}
+        value={folio}
+      />
       <InputForm
         type="number"
         label="№ Registro Senescyt"
         input="number"
         spam={true}
         cols={2}
+        setField={setSenescyt}
+        value={senescyt}
       />
-
       <InputForm
         type="file"
         label="Registro Senescyt"
         input="file-input"
         spam={false}
       />
-
       <InputForm
         type="file"
         label="Registro Access"
         input="file-input"
         spam={false}
       />
-
       <SelectModal
         cols="2"
         title="Especialidad"
         options={especialidadOptions}
+        value={especialidad}
+        setValue={setEspecialidad}
       />
     </ModalContainer>
   );

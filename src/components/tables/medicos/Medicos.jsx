@@ -11,7 +11,7 @@ const Medicos = ({ searchInput, data }) => {
           <th></th>
           <th>Nombres</th>
           <th>Apellidos</th>
-          <th>RUC</th>
+          <th>Cédula / RUC</th>
           <th>№ Folio</th>
           <th>Registro Senescyt</th>
           <th>Especialidad</th>

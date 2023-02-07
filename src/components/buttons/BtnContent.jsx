@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function BtnContent({ children, type, cancel, setModalShowed }) {
+export default function BtnContent({
+  children,
+  type,
+  cancel,
+  setModalShowed,
+  handleSubmit,
+}) {
   if (cancel) {
     return (
       <button

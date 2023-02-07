@@ -4,9 +4,15 @@ import ModalMedico from '../../components/modals/Medicos/ModalMedico';
 import ModalOverlay from '../../components/modals/ModalOverlay';
 import { useState } from 'react';
 import BtnContainer from '../../components/buttons/BtnContainer';
-import { useQuery } from 'react-query';
-import { Oval } from 'react-loader-spinner';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import MainLoader from '../../components/Loaders/MainLoader';
+import {
+  getMedicos,
+  addMedico,
+  destroyMedico,
+  updateMedico,
+} from '../../api/api';
+import { toast, Toaster } from 'react-hot-toast';
 
 const Medicos = ({
   isToolbarOpen,
@@ -16,11 +22,67 @@ const Medicos = ({
 }) => {
   const [addMedicModalShowed, setAddMedicModalShowed] = useState(false);
   const [searchInput, setSearchInput] = useState('');
+  const [nombres, setNombres] = useState('');
+  const [apellidos, setApellidos] = useState('');
+  const [ruc, setRuc] = useState('');
+  const [folio, setFolio] = useState('');
+  const [senescyt, setSenescyt] = useState('');
+  const [especialidad, setEspecialidad] = useState('');
 
-  const fetchMedicos = () =>
-    fetch(' http://localhost:3000/medicos').then((res) => res.json());
+  console.log({
+    nombres,
+    apellidos,
+    ruc,
+    folio,
+    senescyt,
+    especialidad,
+  });
 
-  const { isLoading, error, data } = useQuery('medicosData', fetchMedicos);
+  const queryClient = useQueryClient();
+
+  const { isLoading, error, data: medicos } = useQuery('medicos', getMedicos);
+
+  const addMedicoMutation = useMutation(addMedico, {
+    onSuccess: () => {
+      //invalidates cache and refresh
+      queryClient.invalidateQueries('medicos');
+    },
+  });
+
+  const updateMedicoMutation = useMutation(updateMedico, {
+    onSuccess: () => {
+      //invalidates cache and refresh
+      queryClient.invalidateQueries('medicos');
+    },
+  });
+
+  const destroyMedicoMutation = useMutation(destroyMedico, {
+    onSuccess: () => {
+      //invalidates cache and refresh
+      queryClient.invalidateQueries('medicos');
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      nombres,
+      apellidos,
+      RUC: ruc,
+      folio,
+      senescyt,
+      especialidad,
+    };
+    addMedicoMutation.mutate(data);
+    setAddMedicModalShowed(false);
+    setNombres('');
+    setApellidos('');
+    setRuc('');
+    setFolio('');
+    setSenescyt('');
+    setEspecialidad('');
+    toast.success('Añadido correctamente!');
+  };
 
   if (isLoading) return <MainLoader />;
 
@@ -35,11 +97,14 @@ const Medicos = ({
       setSearchInput={setSearchInput}
       setShowModal={setAddMedicModalShowed}
     >
+      <div>
+        <Toaster />
+      </div>
       <div className="flex items-center justify-start mt-12 w-[95%]  mx-auto flex-col ">
         <MedicosTable
           searchInput={searchInput}
           setAddMedicModalShowed={setAddMedicModalShowed}
-          data={data}
+          data={medicos}
         />
       </div>
       <ModalOverlay
@@ -49,6 +114,19 @@ const Medicos = ({
       <ModalMedico
         modalShowed={addMedicModalShowed}
         setModalShowed={setAddMedicModalShowed}
+        nombres={nombres}
+        apellidos={apellidos}
+        ruc={ruc}
+        folio={folio}
+        senescyt={senescyt}
+        especialidad={especialidad}
+        setNombres={setNombres}
+        setApellidos={setApellidos}
+        setRuc={setRuc}
+        setFolio={setFolio}
+        setSenescyt={setSenescyt}
+        setEspecialidad={setEspecialidad}
+        handleSubmit={handleSubmit}
       />
       <BtnContainer setShowModal={setAddMedicModalShowed} />
     </HomeLayout>

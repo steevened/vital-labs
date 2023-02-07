@@ -1,6 +1,14 @@
 import React from 'react';
 
-export default function InputForm({ label, type, input, spam, cols }) {
+export default function InputForm({
+  label,
+  type,
+  input,
+  spam,
+  cols,
+  setField,
+  value,
+}) {
   return (
     <div
       className={`flex flex-col w-full cols  cols-${
@@ -12,6 +20,8 @@ export default function InputForm({ label, type, input, spam, cols }) {
         {spam === true && <span className="text-red-500">*</span>}
       </label>
       <input
+        value={value}
+        onChange={(e) => setField(e.target.value)}
         type={type}
         className={`${input} ${
           input === 'file-input'
