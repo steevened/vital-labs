@@ -76,7 +76,6 @@ const Medicos = ({
     addMedicoMutation.mutate(data);
     cleanValues();
     setAddMedicModalShowed(false);
-
     toast.success('Añadido correctamente!');
   };
 
