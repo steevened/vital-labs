@@ -324,6 +324,15 @@
       "senescyt": "378354",
       "especialidad": "especialidad 2",
       "id": 34
+    },
+    {
+      "nombres": "testing",
+      "apellidos": "test",
+      "RUC": "3455",
+      "folio": "3454",
+      "senescyt": "3454545",
+      "especialidad": "especialidad 4",
+      "id": 35
     }
   ],
   "pacientes": [
@@ -541,6 +550,16 @@
       "sexo": "Masculino",
       "direccion": "3jsdkfssdr",
       "id": 20
+    },
+    {
+      "nombres": "paciente",
+      "apellidos": "si",
+      "cedula": "9287345789",
+      "nacimiento": "2423-02-23",
+      "civil": "Soltero",
+      "sexo": "Femenino",
+      "direccion": "khusdajdf",
+      "id": 21
     }
   ],
   "usuarios": [
@@ -607,6 +626,30 @@
       "cargo": "cargo 1",
       "rol": "Rol 1",
       "id": 8
+    },
+    {
+      "username": "from vercel",
+      "names": "just vercel",
+      "email": "withnoback@mail.com",
+      "cargo": "cargo 1",
+      "rol": "Rol 3",
+      "id": 9
+    },
+    {
+      "username": "from ",
+      "names": "from netlify",
+      "email": "netlify@mail.com",
+      "cargo": "cargo 2",
+      "rol": "Rol 2",
+      "id": 10
+    },
+    {
+      "username": "only",
+      "names": "when server is running",
+      "email": "mail100@mail.com",
+      "cargo": "cargo 2",
+      "rol": "Rol 2",
+      "id": 11
     }
   ]
 }
