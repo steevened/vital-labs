@@ -6,7 +6,6 @@ import ModalOverlay from '../../components/modals/ModalOverlay';
 import ModalPacientes from '../../components/modals/Pacientes/ModalPacientes';
 import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
-import { getPacientes, addPaciente } from '../../api/api';
 import { Toaster, toast } from 'react-hot-toast';
 import { useAddPaciente, UseFetchPacientes } from '../../hooks/UsePacientes';
 

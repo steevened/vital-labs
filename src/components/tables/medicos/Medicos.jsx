@@ -14,7 +14,7 @@ const Medicos = ({ searchInput, data }) => {
           <th>№ Folio</th>
           <th>Registro Senescyt</th>
           <th>Especialidad</th>
-          <th>Registro de Acess</th>
+          <th className="sticky  right-0">Registro Acess</th>
         </tr>
       </thead>
       <tbody>
@@ -33,14 +33,14 @@ const Medicos = ({ searchInput, data }) => {
             );
           })
           .map((medico) => (
-            <tr key={medico.id}>
+            <tr className="hover" key={medico.id}>
               <td>{medico.nombres}</td>
               <td>{medico.apellidos}</td>
               <td>{medico.ruc}</td>
               <td>{medico.folio}</td>
               <td>{medico.senescyt}</td>
               <td>{medico.especialidad}</td>
-              <th className="flex items-center justify-center">
+              <th className="sticky flex justify-center right-0">
                 <BtnContentSm>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

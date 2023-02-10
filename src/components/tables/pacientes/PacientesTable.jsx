@@ -28,12 +28,11 @@ export default function PacientesTable({ searchInput, data }) {
                 .includes(searchInput.toLowerCase()) ||
               paciente.apellidos
                 .toLowerCase()
-                .includes(searchInput.toLowerCase()) ||
-              paciente.cedula.includes(searchInput)
+                .includes(searchInput.toLowerCase())
             );
           })
           .map((paciente, i) => (
-            <tr key={i}>
+            <tr className="hover" key={i}>
               <td>{paciente.nombres}</td>
               <td>{paciente.apellidos}</td>
               <td>{paciente.cedula}</td>

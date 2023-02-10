@@ -23,7 +23,7 @@ export default function UsersTable({ searchInput, data }) {
               .includes(searchInput.toLowerCase());
           })
           .map((usuario, i) => (
-            <tr key={i}>
+            <tr className="hover" key={i}>
               <td>{usuario.username}</td>
               <td>{usuario.names}</td>
               <td>{usuario.email}</td>
