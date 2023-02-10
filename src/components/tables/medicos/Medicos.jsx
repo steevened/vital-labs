@@ -8,7 +8,6 @@ const Medicos = ({ searchInput, data }) => {
     <TableContainer>
       <thead>
         <tr>
-          <th></th>
           <th>Nombres</th>
           <th>Apellidos</th>
           <th>Cédula / RUC</th>
@@ -35,14 +34,13 @@ const Medicos = ({ searchInput, data }) => {
           })
           .map((medico) => (
             <tr key={medico.id}>
-              <th>{medico.id}</th>
               <td>{medico.nombres}</td>
               <td>{medico.apellidos}</td>
-              <td>{medico.RUC}</td>
+              <td>{medico.ruc}</td>
               <td>{medico.folio}</td>
               <td>{medico.senescyt}</td>
               <td>{medico.especialidad}</td>
-              <td className="flex items-center justify-center">
+              <th className="flex items-center justify-center">
                 <BtnContentSm>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +62,7 @@ const Medicos = ({ searchInput, data }) => {
                     />
                   </svg>
                 </BtnContentSm>
-              </td>
+              </th>
             </tr>
           ))}
       </tbody>

@@ -333,6 +333,33 @@
       "senescyt": "3454545",
       "especialidad": "especialidad 4",
       "id": 35
+    },
+    {
+      "nombres": "hola",
+      "apellidos": "soy",
+      "RUC": "3543",
+      "folio": "23435",
+      "senescyt": "235434534",
+      "especialidad": "especialidad 9",
+      "id": 36
+    },
+    {
+      "nombres": "dsada",
+      "apellidos": "hdsakjdh",
+      "RUC": "023984",
+      "folio": "935789",
+      "senescyt": "3284739",
+      "especialidad": "especialidad 3",
+      "id": 37
+    },
+    {
+      "nombres": "ruc",
+      "apellidos": "ruc",
+      "ruc": "34534",
+      "folio": "23544",
+      "senescyt": "345345",
+      "especialidad": "",
+      "id": 38
     }
   ],
   "pacientes": [
@@ -560,6 +587,16 @@
       "sexo": "Femenino",
       "direccion": "khusdajdf",
       "id": 21
+    },
+    {
+      "nombres": "jhgasd",
+      "apellidos": "sdkjhd",
+      "cedula": "328974",
+      "nacimiento": "2023-02-02",
+      "civil": "Casado",
+      "sexo": "Femenino",
+      "direccion": "asdjhaskld",
+      "id": 22
     }
   ],
   "usuarios": [
@@ -650,6 +687,14 @@
       "cargo": "cargo 2",
       "rol": "Rol 2",
       "id": 11
+    },
+    {
+      "username": "sdad",
+      "names": "jasdlikj lajksd",
+      "email": "dsada@dsajkh.csac",
+      "cargo": "cargo 1",
+      "rol": "Rol 1",
+      "id": 12
     }
   ]
 }

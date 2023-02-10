@@ -8,7 +8,6 @@ export default function UsersTable({ searchInput, data }) {
     <TableContainer>
       <thead>
         <tr>
-          <th></th>
           <th>Nombre de usuario</th>
           <th>Nombres</th>
           <th>Email</th>
@@ -25,7 +24,6 @@ export default function UsersTable({ searchInput, data }) {
           })
           .map((usuario, i) => (
             <tr key={i}>
-              <th>{usuario.id}</th>
               <td>{usuario.username}</td>
               <td>{usuario.names}</td>
               <td>{usuario.email}</td>

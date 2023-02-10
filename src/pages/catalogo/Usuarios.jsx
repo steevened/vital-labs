@@ -6,8 +6,8 @@ import ModalOverlay from '../../components/modals/ModalOverlay';
 import UsuariosModal from '../../components/modals/Usuarios/UsuariosModal';
 import UsersTable from '../../components/tables/users/UsersTable';
 import HomeLayout from '../../layouts/HomeLayout';
-import { getUsers, addUser } from '../../api/api';
 import { toast, Toaster } from 'react-hot-toast';
+import { useAddUser, UseFetchUsers } from '../../hooks/UseUsers';
 
 const Usuarios = ({
   isToolbarOpen,
@@ -17,7 +17,6 @@ const Usuarios = ({
 }) => {
   const [addUserModalShowed, setAddUserModalShowed] = useState(false);
   const [searchInput, setSearchInput] = useState('');
-
   const [username, setUsername] = useState('');
   const [names, setNames] = useState('');
   const [email, setEmail] = useState('');
@@ -26,10 +25,11 @@ const Usuarios = ({
 
   const queryClient = useQueryClient();
 
-  const { isLoading, error, data } = useQuery('usuarios', getUsers);
+  const { isLoading, error, data } = UseFetchUsers();
 
-  const addUserMutation = useMutation(addUser, {
+  const addUser = useMutation(useAddUser, {
     onSuccess: () => {
+      toast.success('Añadido correctamente!');
       queryClient.invalidateQueries('usuarios');
     },
   });
@@ -51,9 +51,8 @@ const Usuarios = ({
       rol,
     };
     cleanValues();
-    addUserMutation.mutate(user);
+    addUser.mutate(user);
     setAddUserModalShowed(false);
-    toast.success('Añadido correctamente');
   };
 
   if (isLoading) return <MainLoader />;

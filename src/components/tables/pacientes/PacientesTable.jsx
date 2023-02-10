@@ -9,7 +9,6 @@ export default function PacientesTable({ searchInput, data }) {
     <TableContainer>
       <thead>
         <tr>
-          <th></th>
           <th>Nombres</th>
           <th>Apellidos</th>
           <th>№ cédula</th>
@@ -35,11 +34,10 @@ export default function PacientesTable({ searchInput, data }) {
           })
           .map((paciente, i) => (
             <tr key={i}>
-              <th>{paciente.id}</th>
               <td>{paciente.nombres}</td>
               <td>{paciente.apellidos}</td>
               <td>{paciente.cedula}</td>
-              <td>{paciente.historial}</td>
+              <td>{paciente.id}</td>
               <td>{paciente.civil}</td>
               <td>{paciente.sexo}</td>
               <td>{paciente.nacimiento}</td>

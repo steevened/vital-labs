@@ -8,6 +8,7 @@ import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
 import { getPacientes, addPaciente } from '../../api/api';
 import { Toaster, toast } from 'react-hot-toast';
+import { useAddPaciente, UseFetchPacientes } from '../../hooks/UsePacientes';
 
 const Pacientes = ({
   isToolbarOpen,
@@ -25,12 +26,13 @@ const Pacientes = ({
   const [sexo, setSexo] = useState('');
   const [direccion, setDireccion] = useState('');
 
-  const { isLoading, error, data } = useQuery('pacientes', getPacientes);
+  const { isLoading, error, data } = UseFetchPacientes();
 
   const queryClient = useQueryClient();
 
-  const addPacienteMutation = useMutation(addPaciente, {
-    onSuccess: () => {
+  const addPacienteMutation = useMutation(useAddPaciente, {
+    onSettled: () => {
+      toast.success('Añadido correctamente!');
       queryClient.invalidateQueries('pacientes');
     },
   });
@@ -59,7 +61,6 @@ const Pacientes = ({
     addPacienteMutation.mutate(data);
     cleanValues();
     setAddPersonModalShowed(false);
-    toast.success('Añadido correctamente!');
   };
 
   if (isLoading) return <MainLoader />;

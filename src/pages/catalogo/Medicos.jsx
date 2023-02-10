@@ -6,13 +6,9 @@ import { useState } from 'react';
 import BtnContainer from '../../components/buttons/BtnContainer';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import MainLoader from '../../components/Loaders/MainLoader';
-import {
-  getMedicos,
-  addMedico,
-  destroyMedico,
-  updateMedico,
-} from '../../api/api';
+import { UseFetchMedicos } from '../../hooks/UseMedicos';
 import { toast, Toaster } from 'react-hot-toast';
+import { useAddMedico } from '../../hooks/UseMedicos';
 
 const Medicos = ({
   isToolbarOpen,
@@ -29,31 +25,6 @@ const Medicos = ({
   const [senescyt, setSenescyt] = useState('');
   const [especialidad, setEspecialidad] = useState('');
 
-  const queryClient = useQueryClient();
-
-  const { isLoading, error, data: medicos } = useQuery('medicos', getMedicos);
-
-  const addMedicoMutation = useMutation(addMedico, {
-    onSuccess: () => {
-      //invalidates cache and refresh
-      queryClient.invalidateQueries('medicos');
-    },
-  });
-
-  const updateMedicoMutation = useMutation(updateMedico, {
-    onSuccess: () => {
-      //invalidates cache and refresh
-      queryClient.invalidateQueries('medicos');
-    },
-  });
-
-  const destroyMedicoMutation = useMutation(destroyMedico, {
-    onSuccess: () => {
-      //invalidates cache and refresh
-      queryClient.invalidateQueries('medicos');
-    },
-  });
-
   const cleanValues = () => {
     setNombres('');
     setApellidos('');
@@ -63,20 +34,31 @@ const Medicos = ({
     setEspecialidad('');
   };
 
+  const { data: medicos, isLoading, error } = UseFetchMedicos();
+
+  const queryClient = useQueryClient();
+
+  const addMedico = useMutation(useAddMedico, {
+    onSuccess: () => {
+      toast.success('Añadido correctamente!');
+      queryClient.invalidateQueries('medicos');
+    },
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       nombres,
       apellidos,
-      RUC: ruc,
+      ruc,
       folio,
       senescyt,
       especialidad,
     };
-    addMedicoMutation.mutate(data);
+
+    addMedico.mutate(data);
     cleanValues();
     setAddMedicModalShowed(false);
-    toast.success('Añadido correctamente!');
   };
 
   if (isLoading) return <MainLoader />;
