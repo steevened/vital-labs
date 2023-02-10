@@ -5,8 +5,8 @@ export default function MainLoader() {
   return (
     <div className="absolute z-50 inset-0 flex items-center justify-center">
       <Oval
-        height={80}
-        width={80}
+        height={50}
+        width={50}
         color="#00a99d"
         wrapperStyle={{}}
         wrapperClass=""

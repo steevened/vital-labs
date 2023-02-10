@@ -3,14 +3,14 @@ import React from 'react';
 export default function BtnActions({ action }) {
   if (action === 'view') {
     return (
-      <button className="bg-sky-200  hover:bg-sky-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm">
+      <button className="bg-sky-200  hover:bg-sky-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm hover:text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-4 h-4"
+          className="w-4 h-4 "
         >
           <path
             strokeLinecap="round"

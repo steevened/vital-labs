@@ -34,8 +34,6 @@ const Medicos = ({
     setEspecialidad('');
   };
 
-  const { data: medicos, isLoading, error } = UseFetchMedicos();
-
   const queryClient = useQueryClient();
 
   const addMedico = useMutation(useAddMedico, {
@@ -61,10 +59,6 @@ const Medicos = ({
     setAddMedicModalShowed(false);
   };
 
-  if (isLoading) return <MainLoader />;
-
-  if (error) return 'An error occurred: ' + error.message;
-
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
@@ -81,7 +75,6 @@ const Medicos = ({
         <MedicosTable
           searchInput={searchInput}
           setAddMedicModalShowed={setAddMedicModalShowed}
-          data={medicos}
         />
       </div>
       <ModalOverlay
