@@ -1,7 +1,5 @@
 import React from 'react';
 import TableContainer from '../TableContainer';
-import BtnContent from '../../buttons/BtnContent';
-import db from '../../../../db.json';
 
 export default function UsersTable({ searchInput, data }) {
   return (

@@ -1,7 +1,5 @@
 import React from 'react';
-import BtnContent from '../../buttons/BtnContent';
-import BtnContentSm from '../../buttons/BtnContentSm';
-import db from '../../../../db.json';
+
 import TableContainer from '../TableContainer';
 
 export default function PacientesTable({ searchInput, data }) {
