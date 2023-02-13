@@ -3,7 +3,7 @@ import { Oval } from 'react-loader-spinner';
 
 export default function MainLoader() {
   return (
-    <div className="absolute z-50 inset-0 flex items-center justify-center">
+    <div className="absolute  inset-0 flex items-center justify-center">
       <Oval
         height={50}
         width={50}

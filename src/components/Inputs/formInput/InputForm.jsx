@@ -6,8 +6,9 @@ export default function InputForm({
   input,
   spam,
   cols,
-  setField,
+  onChange,
   value,
+  name,
 }) {
   return (
     <div
@@ -20,8 +21,10 @@ export default function InputForm({
         {spam === true && <span className="text-red-500">*</span>}
       </label>
       <input
+        name={name}
         value={value}
-        onChange={(e) => setField(e.target.value)}
+        // onChange={(e) => setField(e.target.value)}
+        onChange={onChange}
         type={type}
         className={`${input} ${
           input === 'file-input'

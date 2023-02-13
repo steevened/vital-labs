@@ -41,7 +41,7 @@ const Medicos = ({ searchInput }) => {
               );
             })
             .map((medico) => (
-              <MedicoItem medico={medico} />
+              <MedicoItem key={medico.id} medico={medico} />
             ))}
         </Table>
       )}

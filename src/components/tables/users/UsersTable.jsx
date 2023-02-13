@@ -33,7 +33,7 @@ export default function UsersTable({ searchInput }) {
                 .includes(searchInput.toLowerCase());
             })
             .map((usuario) => (
-              <UserItem usuario={usuario} />
+              <UserItem key={usuario.id} usuario={usuario} />
             ))}
         </Table>
       )}

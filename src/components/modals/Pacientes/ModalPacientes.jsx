@@ -6,8 +6,15 @@ export default function ModalPacientes({
   modalShowed,
   setShowModal,
   handleSubmit,
-  ...props
+  formData,
+  setFormData,
 }) {
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <ModalContainer
       title="Añadir paciente"
@@ -20,44 +27,50 @@ export default function ModalPacientes({
         label="Nombres"
         input="input"
         spam={true}
-        setField={props.setNombres}
-        value={props.nombres}
+        onChange={onChange}
+        value={formData.nombres}
+        name="nombres"
       />
       <InputForm
         type="text"
         label="Apellidos"
         input="input"
         spam={true}
-        setField={props.setApellidos}
-        value={props.apellidos}
+        onChange={onChange}
+        value={formData.apellidos}
+        name="apellidos"
       />
       <InputForm
         type="number"
         label="№ Cédula"
         input="input"
         spam={true}
-        setField={props.setCedula}
-        value={props.cedula}
+        onChange={onChange}
+        value={formData.cedula}
+        name="cedula"
       />
       <InputForm
         type="date"
         label="Fecha de nacimiento"
         input="input"
         spam={true}
-        setField={props.setNacimiento}
-        value={props.nacimiento}
+        onChange={onChange}
+        value={formData.nacimiento}
+        name="nacimiento"
       />
       <SelectModal
         title="Estado Civil"
         options={estadoCiviloptions}
-        setValue={props.setCivil}
-        value={props.civil}
+        value={formData.civil}
+        onChange={onChange}
+        name="civil"
       />
       <SelectModal
         title="Sexo"
         options={sexoOptions}
-        setValue={props.setSexo}
-        value={props.sexo}
+        value={formData.sexo}
+        onChange={onChange}
+        name="sexo"
       />
       <InputForm
         type="text"
@@ -65,8 +78,9 @@ export default function ModalPacientes({
         input="input"
         spam={true}
         cols="2"
-        setField={props.setDireccion}
-        value={props.direccion}
+        onChange={onChange}
+        value={formData.direccion}
+        name="direccion"
       />
     </ModalContainer>
   );

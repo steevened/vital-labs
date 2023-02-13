@@ -15,14 +15,16 @@ const Pacientes = ({
   setCollapsed,
 }) => {
   const [addPersonModalShowed, setAddPersonModalShowed] = useState(false);
+  const [formData, setFormData] = useState({
+    nombres: '',
+    apellidos: '',
+    cedula: '',
+    nacimiento: '',
+    civil: '',
+    sexo: '',
+    direccion: '',
+  });
   const [searchInput, setSearchInput] = useState('');
-  const [nombres, setNombres] = useState('');
-  const [apellidos, setApellidos] = useState('');
-  const [cedula, setCedula] = useState('');
-  const [nacimiento, setNacimiento] = useState('');
-  const [civil, setCivil] = useState('');
-  const [sexo, setSexo] = useState('');
-  const [direccion, setDireccion] = useState('');
 
   const queryClient = useQueryClient();
 
@@ -34,30 +36,25 @@ const Pacientes = ({
   });
 
   const cleanValues = () => {
-    setNombres('');
-    setApellidos('');
-    setCedula('');
-    setNacimiento('');
-    setCivil('');
-    setSexo('');
-    setDireccion('');
+    setFormData({
+      nombres: '',
+      apellidos: '',
+      cedula: '',
+      nacimiento: '',
+      civil: '',
+      sexo: '',
+      direccion: '',
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      nombres,
-      apellidos,
-      cedula,
-      nacimiento,
-      civil,
-      sexo,
-      direccion,
-    };
-    addPacienteMutation.mutate(data);
+    addPacienteMutation.mutate(formData);
     cleanValues();
     setAddPersonModalShowed(false);
   };
+
+  console.log(formData);
 
   return (
     <HomeLayout
@@ -84,21 +81,9 @@ const Pacientes = ({
       <ModalPacientes
         modalShowed={addPersonModalShowed}
         setShowModal={setAddPersonModalShowed}
-        nombres={nombres}
-        setNombres={setNombres}
-        apellidos={apellidos}
-        setApellidos={setApellidos}
-        cedula={cedula}
-        setCedula={setCedula}
-        nacimiento={nacimiento}
-        setNacimiento={setNacimiento}
-        civil={civil}
-        setCivil={setCivil}
-        sexo={sexo}
-        setSexo={setSexo}
-        direccion={direccion}
-        setDireccion={setDireccion}
         handleSubmit={handleSubmit}
+        formData={formData}
+        setFormData={setFormData}
       />
       <BtnContainer setShowModal={setAddPersonModalShowed} />
     </HomeLayout>

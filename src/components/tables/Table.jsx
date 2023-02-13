@@ -5,8 +5,9 @@ function Table({ headers, children }) {
     <table className="table-auto  w-full">
       <thead className="bg-base-100">
         <tr>
-          {headers.map((header) => (
+          {headers.map((header, i) => (
             <th
+              key={i}
               className={`py-3 whitespace-nowrap ${
                 header === '' ? 'sticky right-0 bg-base-100' : ''
               }`}

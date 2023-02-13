@@ -41,7 +41,7 @@ export default function PacientesTable({ searchInput }) {
               );
             })
             .map((paciente) => (
-              <PacienteItem paciente={paciente} />
+              <PacienteItem key={paciente.id} paciente={paciente} />
             ))}
         </Table>
       )}

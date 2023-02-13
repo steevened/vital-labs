@@ -6,20 +6,17 @@ import ModalContainer from '../ModalContainer';
 const ModalMedico = ({
   modalShowed,
   setModalShowed,
-  nombres,
-  apellidos,
-  ruc,
-  folio,
-  senescyt,
-  especialidad,
-  setNombres,
-  setApellidos,
-  setRuc,
-  setSenescyt,
-  setFolio,
-  setEspecialidad,
+  formData,
+  setFormData,
   handleSubmit,
 }) => {
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <ModalContainer
       modalShowed={modalShowed}
@@ -33,24 +30,27 @@ const ModalMedico = ({
         input="input"
         spam={true}
         cols={1}
-        setField={setNombres}
-        value={nombres}
+        onChange={onChange}
+        value={formData.nombres}
+        name="nombres"
       />
       <InputForm
         type="text"
         label="Apellidos"
         input="input"
         spam={true}
-        setField={setApellidos}
-        value={apellidos}
+        value={formData.apellidos}
+        onChange={onChange}
+        name="apellidos"
       />
       <InputForm
         type="number"
-        label="RUC"
+        label="Cédula / RUC"
         input="input"
         spam={true}
-        setField={setRuc}
-        value={ruc}
+        onChange={onChange}
+        value={formData.ruc}
+        name="ruc"
       />
 
       <InputForm
@@ -58,8 +58,9 @@ const ModalMedico = ({
         label="№ Folio"
         input="input"
         spam={true}
-        setField={setFolio}
-        value={folio}
+        value={formData.folio}
+        onChange={onChange}
+        name="folio"
       />
       <InputForm
         type="number"
@@ -67,8 +68,9 @@ const ModalMedico = ({
         input="number"
         spam={true}
         cols={2}
-        setField={setSenescyt}
-        value={senescyt}
+        onChange={onChange}
+        value={formData.senescyt}
+        name="senescyt"
       />
       <InputForm
         type="file"
@@ -86,8 +88,9 @@ const ModalMedico = ({
         cols="2"
         title="Especialidad"
         options={especialidadOptions}
-        value={especialidad}
-        setValue={setEspecialidad}
+        value={formData.especialidad}
+        onChange={onChange}
+        name="especialidad"
       />
     </ModalContainer>
   );

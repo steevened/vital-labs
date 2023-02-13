@@ -15,21 +15,25 @@ const Medicos = ({
   setCollapsed,
 }) => {
   const [addMedicModalShowed, setAddMedicModalShowed] = useState(false);
+  const [formData, setFormData] = useState({
+    nombres: '',
+    apellidos: '',
+    ruc: '',
+    folio: '',
+    senescyt: '',
+    especialidad: '',
+  });
   const [searchInput, setSearchInput] = useState('');
-  const [nombres, setNombres] = useState('');
-  const [apellidos, setApellidos] = useState('');
-  const [ruc, setRuc] = useState('');
-  const [folio, setFolio] = useState('');
-  const [senescyt, setSenescyt] = useState('');
-  const [especialidad, setEspecialidad] = useState('');
 
   const cleanValues = () => {
-    setNombres('');
-    setApellidos('');
-    setRuc('');
-    setFolio('');
-    setSenescyt('');
-    setEspecialidad('');
+    setFormData({
+      nombres: '',
+      apellidos: '',
+      ruc: '',
+      folio: '',
+      senescyt: '',
+      especialidad: '',
+    });
   };
 
   const queryClient = useQueryClient();
@@ -43,19 +47,12 @@ const Medicos = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      nombres,
-      apellidos,
-      ruc,
-      folio,
-      senescyt,
-      especialidad,
-    };
-
-    addMedico.mutate(data);
+    addMedico.mutate(formData);
     cleanValues();
     setAddMedicModalShowed(false);
   };
+
+  // console.log(formData);
 
   return (
     <HomeLayout
@@ -82,18 +79,8 @@ const Medicos = ({
       <ModalMedico
         modalShowed={addMedicModalShowed}
         setModalShowed={setAddMedicModalShowed}
-        nombres={nombres}
-        apellidos={apellidos}
-        ruc={ruc}
-        folio={folio}
-        senescyt={senescyt}
-        especialidad={especialidad}
-        setNombres={setNombres}
-        setApellidos={setApellidos}
-        setRuc={setRuc}
-        setFolio={setFolio}
-        setSenescyt={setSenescyt}
-        setEspecialidad={setEspecialidad}
+        formData={formData}
+        setFormData={setFormData}
         handleSubmit={handleSubmit}
       />
       <BtnContainer setShowModal={setAddMedicModalShowed} />

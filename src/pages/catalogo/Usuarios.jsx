@@ -17,11 +17,14 @@ const Usuarios = ({
 }) => {
   const [addUserModalShowed, setAddUserModalShowed] = useState(false);
   const [searchInput, setSearchInput] = useState('');
-  const [username, setUsername] = useState('');
-  const [names, setNames] = useState('');
-  const [email, setEmail] = useState('');
-  const [cargo, setCargo] = useState('');
-  const [rol, setRol] = useState('');
+  const [formData, setFormData] = useState({
+    username: '',
+    names: '',
+    lastnames: '',
+    email: '',
+    cargo: '',
+    rol: '',
+  });
 
   const queryClient = useQueryClient();
 
@@ -33,23 +36,20 @@ const Usuarios = ({
   });
 
   const cleanValues = () => {
-    setNames('');
-    setEmail('');
-    setCargo('');
-    setRol('');
+    setFormData({
+      username: '',
+      names: '',
+      lastnames: '',
+      email: '',
+      cargo: '',
+      rol: '',
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = {
-      username,
-      names,
-      email,
-      cargo,
-      rol,
-    };
     cleanValues();
-    addUser.mutate(user);
+    addUser.mutate(formData);
     setAddUserModalShowed(false);
   };
 
@@ -79,16 +79,8 @@ const Usuarios = ({
         modalShowed={addUserModalShowed}
         setModalShowed={setAddUserModalShowed}
         handleSubmit={handleSubmit}
-        username={username}
-        setUsername={setUsername}
-        names={names}
-        setNames={setNames}
-        email={email}
-        setEmail={setEmail}
-        cargo={cargo}
-        setCargo={setCargo}
-        rol={rol}
-        setRol={setRol}
+        formData={formData}
+        setFormData={setFormData}
       />
       <BtnContainer setShowModal={setAddUserModalShowed} />
     </HomeLayout>

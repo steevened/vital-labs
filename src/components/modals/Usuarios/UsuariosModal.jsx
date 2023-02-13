@@ -7,17 +7,16 @@ export default function UsuariosModal({
   modalShowed,
   setModalShowed,
   handleSubmit,
-  username,
-  setUsername,
-  names,
-  setNames,
-  email,
-  setEmail,
-  cargo,
-  setCargo,
-  rol,
-  setRol,
+  formData,
+  setFormData,
 }) {
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <ModalContainer
       title="Añadir Usuarios"
@@ -29,35 +28,49 @@ export default function UsuariosModal({
         type="text"
         label="Nombre de usuario"
         spam={true}
-        value={username}
-        setField={setUsername}
+        value={formData.username}
+        onChange={onChange}
+        name="username"
       />
       <InputForm
         type="email"
         label="Email"
         spam={true}
-        value={email}
-        setField={setEmail}
+        value={formData.email}
+        onChange={onChange}
+        name="email"
       />
       <InputForm
         type="text"
         label="Nombres"
         spam={true}
-        cols="2"
-        value={names}
-        setField={setNames}
+        // cols="2"
+        value={formData.names}
+        onChange={onChange}
+        name="names"
+      />
+      <InputForm
+        type="text"
+        label="Apellidos"
+        spam={true}
+        // cols="2"
+        value={formData.lastnames}
+        onChange={onChange}
+        name="lastnames"
       />
       <SelectModal
         title="Cargo"
         options={cargoOptions}
-        value={cargo}
-        setValue={setCargo}
+        value={formData.cargo}
+        onChange={onChange}
+        name="cargo"
       />
       <SelectModal
         title="Rol"
         options={rolOptions}
-        setValue={setRol}
-        value={rol}
+        value={formData.rol}
+        onChange={onChange}
+        name="rol"
       />
     </ModalContainer>
   );
