@@ -25,8 +25,6 @@ const Usuarios = ({
 
   const queryClient = useQueryClient();
 
-  const { isLoading, error, data } = UseFetchUsers();
-
   const addUser = useMutation(useAddUser, {
     onSuccess: () => {
       toast.success('Añadido correctamente!');
@@ -55,9 +53,6 @@ const Usuarios = ({
     setAddUserModalShowed(false);
   };
 
-  if (isLoading) return <MainLoader />;
-  if (error) return 'An error occurred: ' + error.message;
-
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
@@ -74,7 +69,6 @@ const Usuarios = ({
         <UsersTable
           searchInput={searchInput}
           setShowModal={setAddUserModalShowed}
-          data={data}
         />
       </div>
       <ModalOverlay

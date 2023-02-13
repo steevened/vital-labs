@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import BtnContainer from '../../components/buttons/BtnContainer';
-import MainLoader from '../../components/Loaders/MainLoader';
 import ModalOverlay from '../../components/modals/ModalOverlay';
 import ModalPacientes from '../../components/modals/Pacientes/ModalPacientes';
 import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
 import { Toaster, toast } from 'react-hot-toast';
-import { useAddPaciente, UseFetchPacientes } from '../../hooks/UsePacientes';
+import { useAddPaciente } from '../../hooks/UsePacientes';
 
 const Pacientes = ({
   isToolbarOpen,
@@ -24,8 +23,6 @@ const Pacientes = ({
   const [civil, setCivil] = useState('');
   const [sexo, setSexo] = useState('');
   const [direccion, setDireccion] = useState('');
-
-  const { isLoading, error, data } = UseFetchPacientes();
 
   const queryClient = useQueryClient();
 
@@ -62,9 +59,6 @@ const Pacientes = ({
     setAddPersonModalShowed(false);
   };
 
-  if (isLoading) return <MainLoader />;
-  if (error) return 'An error occurred' + error.message;
-
   return (
     <HomeLayout
       isToolbarOpen={isToolbarOpen}
@@ -81,7 +75,6 @@ const Pacientes = ({
         <PacientesTable
           searchInput={searchInput}
           setAddPersonModalShowed={setAddPersonModalShowed}
-          data={data}
         />
       </div>
       <ModalOverlay

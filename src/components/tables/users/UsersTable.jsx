@@ -1,37 +1,46 @@
 import React from 'react';
+import { UseFetchUsers } from '../../../hooks/UseUsers';
+import MainLoader from '../../Loaders/MainLoader';
 import TableContainer from '../TableContainer';
-import BtnContent from '../../buttons/BtnContent';
-import db from '../../../../db.json';
 
-export default function UsersTable({ searchInput, data }) {
+export default function UsersTable({ searchInput }) {
+  const { isLoading, error, data } = UseFetchUsers();
+
+  if (error) return 'An error occurred: ' + error.message;
+
+  const headers = [
+    'Nombre de usuario',
+    'Nombres',
+    'Apellidos',
+    'Email',
+    'Cargo',
+    'Rol',
+  ];
+
   return (
-    <TableContainer>
-      <thead>
-        <tr>
-          <th>Nombre de usuario</th>
-          <th>Nombres</th>
-          <th>Email</th>
-          <th>Cargo</th>
-          <th>Rol</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data
-          .filter((usuario) => {
-            return usuario.username
-              .toLowerCase()
-              .includes(searchInput.toLowerCase());
-          })
-          .map((usuario, i) => (
-            <tr className="hover" key={i}>
-              <td>{usuario.username}</td>
-              <td>{usuario.names}</td>
-              <td>{usuario.email}</td>
-              <td>{usuario.cargo}</td>
-              <td>{usuario.rol}</td>
-            </tr>
-          ))}
-      </tbody>
+    <TableContainer headers={headers}>
+      {isLoading ? (
+        <MainLoader />
+      ) : (
+        <tbody>
+          {data
+            .filter((usuario) => {
+              return usuario.username
+                .toLowerCase()
+                .includes(searchInput.toLowerCase());
+            })
+            .map((usuario, i) => (
+              <tr key={usuario.id}>
+                <td>{usuario.username}</td>
+                <td>{usuario.names}</td>
+                <td>{usuario.lastnames}</td>
+                <td>{usuario.email}</td>
+                <td>{usuario.cargo}</td>
+                <td>{usuario.rol}</td>
+              </tr>
+            ))}
+        </tbody>
+      )}
     </TableContainer>
   );
 }
