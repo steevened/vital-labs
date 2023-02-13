@@ -1,18 +1,8 @@
 import HomeLayout from '../layouts/HomeLayout';
 
-const HomePage = ({
-  isToolbarOpen,
-  setIsToolbarOpen,
-  collapsed,
-  setCollapsed,
-}) => {
+const HomePage = () => {
   return (
-    <HomeLayout
-      isToolbarOpen={isToolbarOpen}
-      setIsToolbarOpen={setIsToolbarOpen}
-      collapsed={collapsed}
-      setCollapsed={setCollapsed}
-    >
+    <HomeLayout>
       <div className="flex items-center justify-center w-full">tablero</div>
     </HomeLayout>
   );

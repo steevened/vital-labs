@@ -7,14 +7,11 @@ import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
 import { Toaster, toast } from 'react-hot-toast';
 import { useAddPaciente } from '../../hooks/UsePacientes';
+import useModalStore from '../../store/ModalStore';
 
-const Pacientes = ({
-  isToolbarOpen,
-  setIsToolbarOpen,
-  collapsed,
-  setCollapsed,
-}) => {
-  const [addPersonModalShowed, setAddPersonModalShowed] = useState(false);
+const Pacientes = () => {
+  const closeModal = useModalStore((state) => state.closeModal);
+  const [searchInput, setSearchInput] = useState('');
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -24,7 +21,6 @@ const Pacientes = ({
     sexo: '',
     direccion: '',
   });
-  const [searchInput, setSearchInput] = useState('');
 
   const queryClient = useQueryClient();
 
@@ -51,41 +47,24 @@ const Pacientes = ({
     e.preventDefault();
     addPacienteMutation.mutate(formData);
     cleanValues();
-    setAddPersonModalShowed(false);
+    closeModal();
   };
 
-  console.log(formData);
-
   return (
-    <HomeLayout
-      isToolbarOpen={isToolbarOpen}
-      setIsToolbarOpen={setIsToolbarOpen}
-      collapsed={collapsed}
-      setCollapsed={setCollapsed}
-      setSearchInput={setSearchInput}
-      setShowModal={setAddPersonModalShowed}
-    >
+    <HomeLayout setSearchInput={setSearchInput}>
       <div>
         <Toaster />
       </div>
       <div className="flex items-center justify-start mt-12 w-[95%] mx-auto flex-col">
-        <PacientesTable
-          searchInput={searchInput}
-          setAddPersonModalShowed={setAddPersonModalShowed}
-        />
+        <PacientesTable searchInput={searchInput} />
       </div>
-      <ModalOverlay
-        modalShowed={addPersonModalShowed}
-        setModalShowed={setAddPersonModalShowed}
-      />
+      <ModalOverlay />
       <ModalPacientes
-        modalShowed={addPersonModalShowed}
-        setShowModal={setAddPersonModalShowed}
         handleSubmit={handleSubmit}
         formData={formData}
         setFormData={setFormData}
       />
-      <BtnContainer setShowModal={setAddPersonModalShowed} />
+      <BtnContainer />
     </HomeLayout>
   );
 };

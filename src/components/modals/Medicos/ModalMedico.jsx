@@ -3,13 +3,7 @@ import SelectModal from '../../selects/SelectModal';
 import InputForm from '../../Inputs/formInput/InputForm';
 import ModalContainer from '../ModalContainer';
 
-const ModalMedico = ({
-  modalShowed,
-  setModalShowed,
-  formData,
-  setFormData,
-  handleSubmit,
-}) => {
+const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
   const onChange = (e) => {
     setFormData({
       ...formData,
@@ -18,12 +12,7 @@ const ModalMedico = ({
   };
 
   return (
-    <ModalContainer
-      modalShowed={modalShowed}
-      title="Añadir Médico"
-      setModalShowed={setModalShowed}
-      handleSubmit={handleSubmit}
-    >
+    <ModalContainer title="Añadir Médico" handleSubmit={handleSubmit}>
       <InputForm
         type="text"
         label="Nombres"

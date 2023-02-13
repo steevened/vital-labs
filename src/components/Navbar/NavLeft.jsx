@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { Collapse } from 'react-collapse';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { useCollapsed, useToolbarStore } from '../../store/ModalStore';
 import CatalogoAccordion from '../accordions/CatalogoAccordion';
 import BtnDashboard from '../buttons/BtnDashboard';
 
-const NavLeft = ({
-  setIsToolbarOpen,
-  isToolbarOpen,
-  collapsed,
-  setCollapsed,
-}) => {
+const NavLeft = ({ collapsed, setCollapsed }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isToolbarOpen, closeToolbar } = useToolbarStore((state) => state);
+
+  const { isCollapsed, openCollapsed, closeCollapsed } = useCollapsed(
+    (state) => state
+  );
 
   return (
     <div
@@ -28,7 +29,7 @@ const NavLeft = ({
         <li
           onClick={(e) => {
             navigate('/');
-            setIsToolbarOpen(false);
+            closeToolbar();
           }}
           className={`w-full ${location.pathname === '/' ? 'active' : ''}`}
         >
@@ -57,7 +58,9 @@ const NavLeft = ({
             className="appearance-none"
             type="checkbox"
             id="catalogo"
-            onChange={(e) => setCollapsed(e.target.checked)}
+            onChange={(e) => {
+              e.target.checked ? openCollapsed() : closeCollapsed();
+            }}
           />
           <label htmlFor="catalogo">
             <BtnDashboard>
@@ -67,7 +70,7 @@ const NavLeft = ({
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   className={`w-3 h-3 transition-all ${
-                    collapsed ? 'rotate-90' : ''
+                    isCollapsed ? 'rotate-90' : ''
                   }`}
                 >
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
@@ -91,11 +94,8 @@ const NavLeft = ({
               <p>Catálogo</p>
             </BtnDashboard>
           </label>
-          <Collapse isOpened={collapsed}>
-            <CatalogoAccordion
-              setCollapsed={setCollapsed}
-              collapsed={collapsed}
-            />
+          <Collapse isOpened={isCollapsed}>
+            <CatalogoAccordion />
           </Collapse>
         </li>
 

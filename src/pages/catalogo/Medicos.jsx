@@ -7,14 +7,9 @@ import BtnContainer from '../../components/buttons/BtnContainer';
 import { useMutation, useQueryClient } from 'react-query';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddMedico } from '../../hooks/UseMedicos';
+import useModalStore from '../../store/ModalStore';
 
-const Medicos = ({
-  isToolbarOpen,
-  setIsToolbarOpen,
-  collapsed,
-  setCollapsed,
-}) => {
-  const [addMedicModalShowed, setAddMedicModalShowed] = useState(false);
+const Medicos = () => {
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -45,45 +40,32 @@ const Medicos = ({
     },
   });
 
+  const closeModal = useModalStore((state) => state.closeModal);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addMedico.mutate(formData);
     cleanValues();
-    setAddMedicModalShowed(false);
+    closeModal();
   };
 
   // console.log(formData);
 
   return (
-    <HomeLayout
-      isToolbarOpen={isToolbarOpen}
-      setIsToolbarOpen={setIsToolbarOpen}
-      collapsed={collapsed}
-      setCollapsed={setCollapsed}
-      setSearchInput={setSearchInput}
-      setShowModal={setAddMedicModalShowed}
-    >
+    <HomeLayout setSearchInput={setSearchInput}>
       <div>
         <Toaster />
       </div>
       <div className="flex items-center justify-start mt-12 w-[95%]  mx-auto flex-col ">
-        <MedicosTable
-          searchInput={searchInput}
-          setAddMedicModalShowed={setAddMedicModalShowed}
-        />
+        <MedicosTable searchInput={searchInput} />
       </div>
-      <ModalOverlay
-        modalShowed={addMedicModalShowed}
-        setModalShowed={setAddMedicModalShowed}
-      />
+      <ModalOverlay />
       <ModalMedico
-        modalShowed={addMedicModalShowed}
-        setModalShowed={setAddMedicModalShowed}
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
       />
-      <BtnContainer setShowModal={setAddMedicModalShowed} />
+      <BtnContainer />
     </HomeLayout>
   );
 };

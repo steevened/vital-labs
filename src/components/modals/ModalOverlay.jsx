@@ -1,11 +1,14 @@
 import React from 'react';
+import useModalStore from '../../store/ModalStore';
 
-const ModalOverlay = ({ modalShowed, setModalShowed }) => {
+const ModalOverlay = () => {
+  const { isModalOpen, closeModal } = useModalStore((state) => state);
+
   return (
     <div
-      onClick={() => setModalShowed(false)}
+      onClick={() => closeModal()}
       className={`absolute inset-0 bg-black/50 z-40 backdrop-blur-[2px] transition-all duration-500 ${
-        modalShowed ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        isModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     ></div>
   );

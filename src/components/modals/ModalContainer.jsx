@@ -1,17 +1,14 @@
 import React from 'react';
 import BtnContent from '../buttons/BtnContent';
+import useModalStore from '../../store/ModalStore';
 
-const ModalContainer = ({
-  children,
-  modalShowed,
-  title,
-  setModalShowed,
-  handleSubmit,
-}) => {
+const ModalContainer = ({ children, title, handleSubmit }) => {
+  const { isModalOpen } = useModalStore();
+
   return (
     <div
       className={`absolute overflow-auto  rounded-md shadow-lg shadow-base-content/30  -translate-x-1/2 -translate-y-1/2 w-5/6 h-fit max-h-[600px] left-1/2 z-50 max-w-lg transition-all duration-300 ${
-        modalShowed ? 'top-1/2' : '-top-full'
+        isModalOpen ? 'top-1/2' : '-top-full'
       }`}
     >
       <div className="bg-base-200 w-full h-full p-3">
@@ -25,9 +22,7 @@ const ModalContainer = ({
           </div>
           <div className="flex items-center justify-center py-5 gap-10">
             <BtnContent type="submit">Confirmar</BtnContent>
-            <BtnContent cancel={true} setModalShowed={setModalShowed}>
-              Cancelar
-            </BtnContent>
+            <BtnContent cancel={true}>Cancelar</BtnContent>
           </div>
         </form>
       </div>

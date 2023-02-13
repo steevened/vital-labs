@@ -3,8 +3,6 @@ import SelectModal from '../../selects/SelectModal';
 import ModalContainer from '../ModalContainer';
 
 export default function ModalPacientes({
-  modalShowed,
-  setShowModal,
   handleSubmit,
   formData,
   setFormData,
@@ -16,12 +14,7 @@ export default function ModalPacientes({
     });
   };
   return (
-    <ModalContainer
-      title="Añadir paciente"
-      modalShowed={modalShowed}
-      setModalShowed={setShowModal}
-      handleSubmit={handleSubmit}
-    >
+    <ModalContainer title="Añadir paciente" handleSubmit={handleSubmit}>
       <InputForm
         type="text"
         label="Nombres"

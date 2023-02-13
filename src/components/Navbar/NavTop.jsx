@@ -2,11 +2,14 @@ import React from 'react';
 import BtnCircle from '../buttons/BtnCircle';
 import { Link, useLocation } from 'react-router-dom';
 import BtnAdd from '../buttons/BtnAdd';
+import { useToolbarStore } from '../../store/ModalStore';
 
-const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
+const NavTop = ({ setSearchInput }) => {
   const handleSearch = (e) => {
     e.preventDefault();
   };
+
+  const { openToolbar } = useToolbarStore((state) => state);
 
   const logOut = () => {
     localStorage.removeItem('username');
@@ -17,7 +20,7 @@ const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
   return (
     <nav className="absolute bg-base-200 shadow-lg flex w-calc md:right-0 h-14 items-center">
       <div className="md:hidden absolute left-7">
-        <BtnCircle btnAction={() => setIsToolbarOpen(true)}>
+        <BtnCircle btnAction={() => openToolbar()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -67,7 +70,7 @@ const NavTop = ({ setIsToolbarOpen, setSearchInput, setShowModal }) => {
           location.pathname === '/' ? 'hidden' : ''
         }`}
       >
-        <BtnAdd setShowModal={setShowModal} />
+        <BtnAdd />
       </div>
       <div className="absolute right-7">
         <div className="dropdown dropdown-end">

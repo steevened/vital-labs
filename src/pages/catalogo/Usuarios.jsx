@@ -7,16 +7,13 @@ import UsuariosModal from '../../components/modals/Usuarios/UsuariosModal';
 import UsersTable from '../../components/tables/users/UsersTable';
 import HomeLayout from '../../layouts/HomeLayout';
 import { toast, Toaster } from 'react-hot-toast';
-import { useAddUser, UseFetchUsers } from '../../hooks/UseUsers';
+import { useAddUser } from '../../hooks/UseUsers';
+import useModalStore from '../../store/ModalStore';
 
-const Usuarios = ({
-  isToolbarOpen,
-  setIsToolbarOpen,
-  collapsed,
-  setCollapsed,
-}) => {
-  const [addUserModalShowed, setAddUserModalShowed] = useState(false);
+const Usuarios = () => {
   const [searchInput, setSearchInput] = useState('');
+  const closeModal = useModalStore((state) => state.closeModal);
+  const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
     username: '',
     names: '',
@@ -25,8 +22,6 @@ const Usuarios = ({
     cargo: '',
     rol: '',
   });
-
-  const queryClient = useQueryClient();
 
   const addUser = useMutation(useAddUser, {
     onSuccess: () => {
@@ -50,39 +45,24 @@ const Usuarios = ({
     e.preventDefault();
     cleanValues();
     addUser.mutate(formData);
-    setAddUserModalShowed(false);
+    closeModal();
   };
 
   return (
-    <HomeLayout
-      isToolbarOpen={isToolbarOpen}
-      setIsToolbarOpen={setIsToolbarOpen}
-      collapsed={collapsed}
-      setCollapsed={setCollapsed}
-      setSearchInput={setSearchInput}
-      setShowModal={setAddUserModalShowed}
-    >
+    <HomeLayout setSearchInput={setSearchInput}>
       <div>
         <Toaster />
       </div>
       <div className="flex items-start justify-start mt-12 w-[95%] mx-auto flex-col">
-        <UsersTable
-          searchInput={searchInput}
-          setShowModal={setAddUserModalShowed}
-        />
+        <UsersTable searchInput={searchInput} />
       </div>
-      <ModalOverlay
-        modalShowed={addUserModalShowed}
-        setModalShowed={setAddUserModalShowed}
-      />
+      <ModalOverlay />
       <UsuariosModal
-        modalShowed={addUserModalShowed}
-        setModalShowed={setAddUserModalShowed}
         handleSubmit={handleSubmit}
         formData={formData}
         setFormData={setFormData}
       />
-      <BtnContainer setShowModal={setAddUserModalShowed} />
+      <BtnContainer />
     </HomeLayout>
   );
 };

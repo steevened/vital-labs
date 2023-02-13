@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useCollapsed } from '../../store/ModalStore';
 import BtnDashboard from '../buttons/BtnDashboard';
 
-const CatalogoAccordion = ({ collapsed, setCollapsed }) => {
+const CatalogoAccordion = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { openCollapsed } = useCollapsed((state) => state);
 
   return (
     <ul>
       <li
         onClick={() => {
           navigate('/medicos');
-          setCollapsed(true);
+          openCollapsed();
         }}
         className={`w-full ${location.pathname === '/medicos' ? 'active' : ''}`}
       >
@@ -23,7 +26,7 @@ const CatalogoAccordion = ({ collapsed, setCollapsed }) => {
         }`}
         onClick={() => {
           navigate('/pacientes');
-          setCollapsed(true);
+          openCollapsed();
         }}
       >
         <BtnDashboard>Pacientes</BtnDashboard>
@@ -31,7 +34,7 @@ const CatalogoAccordion = ({ collapsed, setCollapsed }) => {
       <li
         onClick={() => {
           navigate('/usuarios');
-          setCollapsed(true);
+          openCollapsed();
         }}
         className={`w-full ${
           location.pathname === '/usuarios' ? 'active' : ''
