@@ -1,6 +1,6 @@
 import React from 'react';
 import BtnContent from '../buttons/BtnContent';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 
 const ModalContainer = ({ children, title, handleSubmit }) => {
   const { isModalOpen } = useModalStore();

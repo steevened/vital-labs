@@ -2,14 +2,11 @@ import React from 'react';
 import BtnCircle from '../buttons/BtnCircle';
 import { Link, useLocation } from 'react-router-dom';
 import BtnAdd from '../buttons/BtnAdd';
-import { useToolbarStore } from '../../store/ModalStore';
+import { useInputValue, useToolbarStore } from '../../store/VitalStore';
 
-const NavTop = ({ setSearchInput }) => {
-  const handleSearch = (e) => {
-    e.preventDefault();
-  };
-
+const NavTop = () => {
   const { openToolbar } = useToolbarStore((state) => state);
+  const { setInputValue, inputValue } = useInputValue((state) => state);
 
   const logOut = () => {
     localStorage.removeItem('username');
@@ -38,15 +35,16 @@ const NavTop = ({ setSearchInput }) => {
         </BtnCircle>
       </div>
       <form
-        onSubmit={handleSearch}
+        onSubmit={(e) => e.preventDefault()}
         className="absolute -translate-x-1/2 left-1/2 md:translate-x-0 md:left-7"
       >
         <input
-          onChange={(e) => setSearchInput(e.target.value)}
+          onChange={(e) => setInputValue(e.target.value)}
           placeholder="Buscar"
           className="focus:outline-none shadow-lg  py-1 pl-10 bg-base-100 w-40 sm:w-60 md:w-64 rounded-full"
           type="text"
           id="search"
+          value={inputValue}
         />
         <div className="absolute -translate-y-1/2 top-1/2 left-2">
           <svg

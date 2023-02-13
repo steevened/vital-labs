@@ -1,5 +1,5 @@
 import React from 'react';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 
 const ModalOverlay = () => {
   const { isModalOpen, closeModal } = useModalStore((state) => state);

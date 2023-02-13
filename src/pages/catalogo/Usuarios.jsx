@@ -8,10 +8,9 @@ import UsersTable from '../../components/tables/users/UsersTable';
 import HomeLayout from '../../layouts/HomeLayout';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddUser } from '../../hooks/UseUsers';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 
 const Usuarios = () => {
-  const [searchInput, setSearchInput] = useState('');
   const closeModal = useModalStore((state) => state.closeModal);
   const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
@@ -49,12 +48,12 @@ const Usuarios = () => {
   };
 
   return (
-    <HomeLayout setSearchInput={setSearchInput}>
+    <HomeLayout>
       <div>
         <Toaster />
       </div>
       <div className="flex items-start justify-start mt-12 w-[95%] mx-auto flex-col">
-        <UsersTable searchInput={searchInput} />
+        <UsersTable />
       </div>
       <ModalOverlay />
       <UsuariosModal

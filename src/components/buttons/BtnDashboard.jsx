@@ -1,5 +1,5 @@
 import React from 'react';
-import { useToolbarStore } from '../../store/ModalStore';
+import { useToolbarStore } from '../../store/VitalStore';
 
 const BtnDashboard = ({ children }) => {
   const { closeToolbar } = useToolbarStore((state) => state);

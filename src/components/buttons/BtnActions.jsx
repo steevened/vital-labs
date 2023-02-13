@@ -1,5 +1,5 @@
 import React from 'react';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 
 export default function BtnActions({ action }) {
   const openModal = useModalStore((state) => state.openModal);

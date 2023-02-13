@@ -1,10 +1,8 @@
 import React from 'react';
-import { useToolbarStore } from '../../store/ModalStore';
+import { useToolbarStore } from '../../store/VitalStore';
 
 const Overlay = ({ setIsToolbarOpen }) => {
   const { isToolbarOpen, closeToolbar } = useToolbarStore((state) => state);
-
-  console.log(isToolbarOpen);
 
   return (
     <div

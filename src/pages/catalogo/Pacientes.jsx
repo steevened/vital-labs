@@ -7,11 +7,10 @@ import PacientesTable from '../../components/tables/pacientes/PacientesTable';
 import HomeLayout from '../../layouts/HomeLayout';
 import { Toaster, toast } from 'react-hot-toast';
 import { useAddPaciente } from '../../hooks/UsePacientes';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 
 const Pacientes = () => {
   const closeModal = useModalStore((state) => state.closeModal);
-  const [searchInput, setSearchInput] = useState('');
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -51,12 +50,12 @@ const Pacientes = () => {
   };
 
   return (
-    <HomeLayout setSearchInput={setSearchInput}>
+    <HomeLayout>
       <div>
         <Toaster />
       </div>
       <div className="flex items-center justify-start mt-12 w-[95%] mx-auto flex-col">
-        <PacientesTable searchInput={searchInput} />
+        <PacientesTable />
       </div>
       <ModalOverlay />
       <ModalPacientes

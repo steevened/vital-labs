@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Collapse } from 'react-collapse';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-import { useCollapsed, useToolbarStore } from '../../store/ModalStore';
+import { useCollapsed, useToolbarStore } from '../../store/VitalStore';
 import CatalogoAccordion from '../accordions/CatalogoAccordion';
 import BtnDashboard from '../buttons/BtnDashboard';
 

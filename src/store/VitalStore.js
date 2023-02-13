@@ -18,4 +18,9 @@ export const useCollapsed = create((set) => ({
   closeCollapsed: () => set({ isCollapsed: false }),
 }));
 
+export const useInputValue = create((set) => ({
+  inputValue: '',
+  setInputValue: (value) => set({ inputValue: value }),
+}));
+
 export default useModalStore;

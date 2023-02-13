@@ -7,9 +7,10 @@ import BtnContainer from '../../components/buttons/BtnContainer';
 import { useMutation, useQueryClient } from 'react-query';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddMedico } from '../../hooks/UseMedicos';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 
 const Medicos = () => {
+  const closeModal = useModalStore((state) => state.closeModal);
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -18,7 +19,6 @@ const Medicos = () => {
     senescyt: '',
     especialidad: '',
   });
-  const [searchInput, setSearchInput] = useState('');
 
   const cleanValues = () => {
     setFormData({
@@ -40,8 +40,6 @@ const Medicos = () => {
     },
   });
 
-  const closeModal = useModalStore((state) => state.closeModal);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     addMedico.mutate(formData);
@@ -49,15 +47,13 @@ const Medicos = () => {
     closeModal();
   };
 
-  // console.log(formData);
-
   return (
-    <HomeLayout setSearchInput={setSearchInput}>
+    <HomeLayout>
       <div>
         <Toaster />
       </div>
       <div className="flex items-center justify-start mt-12 w-[95%]  mx-auto flex-col ">
-        <MedicosTable searchInput={searchInput} />
+        <MedicosTable />
       </div>
       <ModalOverlay />
       <ModalMedico

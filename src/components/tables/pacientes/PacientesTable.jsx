@@ -1,15 +1,15 @@
 import React from 'react';
 import { UseFetchPacientes } from '../../../hooks/UsePacientes';
+import { useInputValue } from '../../../store/VitalStore';
 import MainLoader from '../../Loaders/MainLoader';
 import Table from '../Table';
 
 import TableContainer from '../TableContainer';
 import PacienteItem from './PacienteItem';
 
-export default function PacientesTable({ searchInput }) {
+export default function PacientesTable() {
   const { isLoading, error, data: pacientes } = UseFetchPacientes();
-
-  if (error) return 'An error occurred' + error.message;
+  const { inputValue } = useInputValue((state) => state);
 
   const headers = [
     'Nombres',
@@ -23,6 +23,8 @@ export default function PacientesTable({ searchInput }) {
     '',
   ];
 
+  if (error) return 'An error occurred' + error.message;
+
   return (
     <TableContainer>
       {isLoading ? (
@@ -34,10 +36,10 @@ export default function PacientesTable({ searchInput }) {
               return (
                 paciente.nombres
                   .toLowerCase()
-                  .includes(searchInput.toLowerCase()) ||
+                  .includes(inputValue.toLowerCase()) ||
                 paciente.apellidos
                   .toLowerCase()
-                  .includes(searchInput.toLowerCase())
+                  .includes(inputValue.toLowerCase())
               );
             })
             .map((paciente) => (

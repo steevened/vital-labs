@@ -1,11 +1,14 @@
 import { UseFetchMedicos } from '../../../hooks/UseMedicos';
+import { useInputValue } from '../../../store/VitalStore';
 import MainLoader from '../../Loaders/MainLoader';
 import Table from '../Table';
 import TableContainer from '../TableContainer';
 import MedicoItem from './MedicoItem';
 
-const Medicos = ({ searchInput }) => {
+const Medicos = () => {
   const { data: medicos, isLoading, error } = UseFetchMedicos();
+
+  const { inputValue } = useInputValue((state) => state);
 
   if (error) return 'An error occurred: ' + error.message;
 
@@ -31,13 +34,13 @@ const Medicos = ({ searchInput }) => {
               return (
                 medico.nombres
                   .toLowerCase()
-                  .includes(searchInput.toLowerCase()) ||
+                  .includes(inputValue.toLowerCase()) ||
                 medico.apellidos
                   .toLowerCase()
-                  .includes(searchInput.toLowerCase()) ||
+                  .includes(inputValue.toLowerCase()) ||
                 medico.especialidad
                   .toLowerCase()
-                  .includes(searchInput.toLowerCase())
+                  .includes(inputValue.toLowerCase())
               );
             })
             .map((medico) => (

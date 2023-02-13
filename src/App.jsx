@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ProtectedRoutes from './components/protectedRoutes/ProtectedRoutes';
@@ -11,12 +10,12 @@ import Usuarios from './pages/catalogo/Usuarios';
 function App() {
   return (
     <BrowserRouter>
-      <div className=" h-full min-h-screen">
+      <div className="h-full min-h-screen">
         <Routes>
           <Route element={<ProtectedRoutes />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/pacientes" element={<Pacientes />} />
             <Route path="/medicos" element={<Medicos />} />
+            <Route path="/pacientes" element={<Pacientes />} />
             <Route path="/usuarios" element={<Usuarios />} />
           </Route>
           <Route path="/login" element={<Login />} />

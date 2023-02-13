@@ -1,5 +1,5 @@
 import React from 'react';
-import useModalStore from '../../store/ModalStore';
+import useModalStore from '../../store/VitalStore';
 import BtnContent from './BtnContent';
 
 export default function BtnAdd({ setShowModal }) {

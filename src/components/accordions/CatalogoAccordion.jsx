@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useCollapsed } from '../../store/ModalStore';
+import { useCollapsed, useInputValue } from '../../store/VitalStore';
 import BtnDashboard from '../buttons/BtnDashboard';
 
 const CatalogoAccordion = () => {
@@ -8,13 +8,19 @@ const CatalogoAccordion = () => {
   const location = useLocation();
 
   const { openCollapsed } = useCollapsed((state) => state);
+  const { setInputValue } = useInputValue((state) => state);
+
+  const resetState = () => {
+    openCollapsed();
+    setInputValue('');
+  };
 
   return (
     <ul>
       <li
         onClick={() => {
           navigate('/medicos');
-          openCollapsed();
+          resetState();
         }}
         className={`w-full ${location.pathname === '/medicos' ? 'active' : ''}`}
       >
@@ -26,7 +32,7 @@ const CatalogoAccordion = () => {
         }`}
         onClick={() => {
           navigate('/pacientes');
-          openCollapsed();
+          resetState();
         }}
       >
         <BtnDashboard>Pacientes</BtnDashboard>
@@ -34,7 +40,7 @@ const CatalogoAccordion = () => {
       <li
         onClick={() => {
           navigate('/usuarios');
-          openCollapsed();
+          resetState();
         }}
         className={`w-full ${
           location.pathname === '/usuarios' ? 'active' : ''
