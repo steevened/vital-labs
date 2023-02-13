@@ -23,7 +23,6 @@ export default function InputForm({
       <input
         name={name}
         value={value}
-        // onChange={(e) => setField(e.target.value)}
         onChange={onChange}
         type={type}
         className={`${input} ${

@@ -3,7 +3,6 @@ import BtnTable from '../../buttons/BtnTable';
 import TableDesc from '../TableDesc';
 
 function MedicoItem({ medico }) {
-  // console.log(medico);
   return (
     <tr className="border hover:bg-sky-100 group">
       <TableDesc>{medico.nombres}</TableDesc>
