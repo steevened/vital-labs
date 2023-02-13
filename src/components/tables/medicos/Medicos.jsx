@@ -1,5 +1,4 @@
 import { UseFetchMedicos } from '../../../hooks/UseMedicos';
-import BtnActions from '../../buttons/BtnActions';
 import MainLoader from '../../Loaders/MainLoader';
 import Table from '../Table';
 import TableContainer from '../TableContainer';
@@ -22,7 +21,7 @@ const Medicos = ({ searchInput }) => {
   ];
 
   return (
-    <TableContainer headers={headers} isLoading={isLoading}>
+    <TableContainer>
       {isLoading ? (
         <MainLoader />
       ) : (

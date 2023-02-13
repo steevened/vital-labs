@@ -4,9 +4,7 @@ import ModalMedico from '../../components/modals/Medicos/ModalMedico';
 import ModalOverlay from '../../components/modals/ModalOverlay';
 import { useState } from 'react';
 import BtnContainer from '../../components/buttons/BtnContainer';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-import MainLoader from '../../components/Loaders/MainLoader';
-import { UseFetchMedicos } from '../../hooks/UseMedicos';
+import { useMutation, useQueryClient } from 'react-query';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddMedico } from '../../hooks/UseMedicos';
 

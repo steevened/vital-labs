@@ -1,11 +1,13 @@
 import React from 'react';
 import { UseFetchPacientes } from '../../../hooks/UsePacientes';
 import MainLoader from '../../Loaders/MainLoader';
+import Table from '../Table';
 
 import TableContainer from '../TableContainer';
+import PacienteItem from './PacienteItem';
 
 export default function PacientesTable({ searchInput }) {
-  const { isLoading, error, data } = UseFetchPacientes();
+  const { isLoading, error, data: pacientes } = UseFetchPacientes();
 
   if (error) return 'An error occurred' + error.message;
 
@@ -18,15 +20,16 @@ export default function PacientesTable({ searchInput }) {
     'Género',
     'Fecha Nacimiento',
     'Dirección',
+    '',
   ];
 
   return (
-    <TableContainer headers={headers}>
+    <TableContainer>
       {isLoading ? (
         <MainLoader />
       ) : (
-        <tbody>
-          {data
+        <Table headers={headers}>
+          {pacientes
             .filter((paciente) => {
               return (
                 paciente.nombres
@@ -37,19 +40,10 @@ export default function PacientesTable({ searchInput }) {
                   .includes(searchInput.toLowerCase())
               );
             })
-            .map((paciente, i) => (
-              <tr className="hover" key={i}>
-                <td>{paciente.nombres}</td>
-                <td>{paciente.apellidos}</td>
-                <td>{paciente.cedula}</td>
-                <td>{paciente.id}</td>
-                <td>{paciente.civil}</td>
-                <td>{paciente.sexo}</td>
-                <td>{paciente.nacimiento}</td>
-                <td>{paciente.direccion}</td>
-              </tr>
+            .map((paciente) => (
+              <PacienteItem paciente={paciente} />
             ))}
-        </tbody>
+        </Table>
       )}
     </TableContainer>
   );

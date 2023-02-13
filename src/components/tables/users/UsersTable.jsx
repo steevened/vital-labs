@@ -1,10 +1,12 @@
 import React from 'react';
 import { UseFetchUsers } from '../../../hooks/UseUsers';
 import MainLoader from '../../Loaders/MainLoader';
+import Table from '../Table';
 import TableContainer from '../TableContainer';
+import UserItem from './UserItem';
 
 export default function UsersTable({ searchInput }) {
-  const { isLoading, error, data } = UseFetchUsers();
+  const { isLoading, error, data: usuarios } = UseFetchUsers();
 
   if (error) return 'An error occurred: ' + error.message;
 
@@ -15,6 +17,7 @@ export default function UsersTable({ searchInput }) {
     'Email',
     'Cargo',
     'Rol',
+    '',
   ];
 
   return (
@@ -22,24 +25,17 @@ export default function UsersTable({ searchInput }) {
       {isLoading ? (
         <MainLoader />
       ) : (
-        <tbody>
-          {data
+        <Table headers={headers}>
+          {usuarios
             .filter((usuario) => {
               return usuario.username
                 .toLowerCase()
                 .includes(searchInput.toLowerCase());
             })
-            .map((usuario, i) => (
-              <tr key={usuario.id}>
-                <td>{usuario.username}</td>
-                <td>{usuario.names}</td>
-                <td>{usuario.lastnames}</td>
-                <td>{usuario.email}</td>
-                <td>{usuario.cargo}</td>
-                <td>{usuario.rol}</td>
-              </tr>
+            .map((usuario) => (
+              <UserItem usuario={usuario} />
             ))}
-        </tbody>
+        </Table>
       )}
     </TableContainer>
   );
