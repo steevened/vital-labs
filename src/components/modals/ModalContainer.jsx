@@ -3,8 +3,8 @@ import BtnContent from '../buttons/BtnContent';
 import useModalStore from '../../store/VitalStore';
 import BtnActions from '../buttons/BtnActions';
 
-const ModalContainer = ({ children, title, handleSubmit }) => {
-  const { isModalOpen, fieldsDisabled } = useModalStore((state) => state);
+const ModalContainer = ({ children, title, handleSubmit, fieldsDisabled }) => {
+  const { isModalOpen } = useModalStore((state) => state);
 
   return (
     <div

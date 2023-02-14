@@ -10,9 +10,8 @@ export default function InputForm({
   onChange,
   value,
   name,
+  fieldsDisabled,
 }) {
-  const { fieldsDisabled } = useModalStore((state) => state);
-
   return (
     <div
       className={`flex flex-col w-full cols  cols-${

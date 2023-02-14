@@ -19,6 +19,8 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
 
   const { idOpen, fieldsDisabled } = useModalStore((state) => state);
 
+  console.log(fieldsDisabled);
+
   useEffect(() => {
     if (idOpen) {
       const medico = medicos.find((medico) => medico.id === idOpen);
@@ -32,6 +34,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
     <ModalContainer
       title={fieldsDisabled ? 'Médico' : 'Añadir Médico'}
       handleSubmit={handleSubmit}
+      fieldsDisabled={fieldsDisabled}
     >
       <InputForm
         type="text"
@@ -42,6 +45,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         onChange={onChange}
         value={nombres}
         name="nombres"
+        fieldsDisabled={fieldsDisabled}
       />
       <InputForm
         type="text"
@@ -51,6 +55,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         value={apellidos}
         onChange={onChange}
         name="apellidos"
+        fieldsDisabled={fieldsDisabled}
       />
       <InputForm
         type="number"
@@ -60,6 +65,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         onChange={onChange}
         value={ruc}
         name="ruc"
+        fieldsDisabled={fieldsDisabled}
       />
 
       <InputForm
@@ -70,6 +76,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         value={folio}
         onChange={onChange}
         name="folio"
+        fieldsDisabled={fieldsDisabled}
       />
       <InputForm
         type="number"
@@ -80,6 +87,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         onChange={onChange}
         value={senescyt}
         name="senescyt"
+        fieldsDisabled={fieldsDisabled}
       />
       <SelectModal
         cols="2"
@@ -88,18 +96,21 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         value={especialidad}
         onChange={onChange}
         name="especialidad"
+        fieldsDisabled={fieldsDisabled}
       />
       <InputForm
         type="file"
         label="Registro Senescyt"
         input="file-input"
         spam={false}
+        fieldsDisabled={fieldsDisabled}
       />
       <InputForm
         type="file"
         label="Registro Access"
         input="file-input"
         spam={false}
+        fieldsDisabled={fieldsDisabled}
       />
     </ModalContainer>
   );

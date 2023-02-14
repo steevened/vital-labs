@@ -7,9 +7,8 @@ export default function SelectModal({
   value,
   onChange,
   name,
+  fieldsDisabled,
 }) {
-  const { fieldsDisabled } = useModalStore((state) => state);
-
   return (
     <select
       name={name}
