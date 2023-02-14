@@ -12,7 +12,8 @@ export default function SelectModal({
     <select
       name={name}
       onChange={onChange}
-      defaultValue={title}
+      // defaultValue={title}
+      value={value}
       className={`select select-sm select-bordered w-full mt-3 shadow-base-300 shadow-lg cols  cols-${
         !cols || cols === 1 ? '1' : cols
       }`}

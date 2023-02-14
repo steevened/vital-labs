@@ -6,13 +6,13 @@ export default function BtnContent({ children, type, cancel }) {
 
   if (cancel) {
     return (
-      <button
+      <div
         onClick={() => closeModal()}
-        className={`bg-red-400 hover:bg-red-700 
+        className={`bg-red-400 hover:bg-red-700 cursor-pointer 
         text-white  transition-all active:scale-95 p-3 md:py-1 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center`}
       >
         {children}
-      </button>
+      </div>
     );
   }
 

@@ -32,6 +32,7 @@ const Medicos = () => {
     });
   };
 
+  console.log(formData);
   const queryClient = useQueryClient();
 
   const addMedico = useMutation(useAddMedico, {
@@ -61,6 +62,7 @@ const Medicos = () => {
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
+        cleanValues={cleanValues}
       />
       <BtnContainer />
     </HomeLayout>

@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SelectModal from '../../selects/SelectModal';
 import InputForm from '../../Inputs/formInput/InputForm';
 import ModalContainer from '../ModalContainer';
+import { UseFetchMedicos } from '../../../hooks/UseMedicos';
+import useModalStore from '../../../store/VitalStore';
 
-const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
+const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
   const onChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
+  const { data: medicos } = UseFetchMedicos();
+
+  const { nombres, apellidos, ruc, folio, senescyt, especialidad } = formData;
+
+  const { idOpen } = useModalStore((state) => state);
+
+  useEffect(() => {
+    if (idOpen) {
+      const medico = medicos.find((medico) => medico.id === idOpen);
+      setFormData(medico);
+    } else {
+      cleanValues();
+    }
+  }, [idOpen]);
 
   return (
     <ModalContainer title="Añadir Médico" handleSubmit={handleSubmit}>
@@ -20,7 +37,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
         spam={true}
         cols={1}
         onChange={onChange}
-        value={formData.nombres}
+        value={nombres}
         name="nombres"
       />
       <InputForm
@@ -28,7 +45,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
         label="Apellidos"
         input="input"
         spam={true}
-        value={formData.apellidos}
+        value={apellidos}
         onChange={onChange}
         name="apellidos"
       />
@@ -38,7 +55,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
         input="input"
         spam={true}
         onChange={onChange}
-        value={formData.ruc}
+        value={ruc}
         name="ruc"
       />
 
@@ -47,7 +64,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
         label="№ Folio"
         input="input"
         spam={true}
-        value={formData.folio}
+        value={folio}
         onChange={onChange}
         name="folio"
       />
@@ -58,7 +75,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
         spam={true}
         cols={2}
         onChange={onChange}
-        value={formData.senescyt}
+        value={senescyt}
         name="senescyt"
       />
       <InputForm
@@ -77,7 +94,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit }) => {
         cols="2"
         title="Especialidad"
         options={especialidadOptions}
-        value={formData.especialidad}
+        value={especialidad}
         onChange={onChange}
         name="especialidad"
       />
