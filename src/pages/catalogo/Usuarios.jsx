@@ -9,6 +9,7 @@ import HomeLayout from '../../layouts/HomeLayout';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddUser } from '../../hooks/UseUsers';
 import useModalStore from '../../store/VitalStore';
+import TableDimensions from '../../components/tables/TableDimensions';
 
 const Usuarios = () => {
   const closeModal = useModalStore((state) => state.closeModal);
@@ -52,9 +53,9 @@ const Usuarios = () => {
       <div>
         <Toaster />
       </div>
-      <div className="flex items-start justify-start mt-12 w-[95%] mx-auto flex-col">
+      <TableDimensions>
         <UsersTable />
-      </div>
+      </TableDimensions>
       <ModalOverlay />
       <UsuariosModal
         handleSubmit={handleSubmit}

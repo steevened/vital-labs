@@ -8,6 +8,7 @@ import HomeLayout from '../../layouts/HomeLayout';
 import { Toaster, toast } from 'react-hot-toast';
 import { useAddPaciente } from '../../hooks/UsePacientes';
 import useModalStore from '../../store/VitalStore';
+import TableDimensions from '../../components/tables/TableDimensions';
 
 const Pacientes = () => {
   const closeModal = useModalStore((state) => state.closeModal);
@@ -54,9 +55,10 @@ const Pacientes = () => {
       <div>
         <Toaster />
       </div>
-      <div className="flex items-center justify-start mt-12 w-[95%] mx-auto flex-col">
+      <TableDimensions>
         <PacientesTable />
-      </div>
+      </TableDimensions>
+
       <ModalOverlay />
       <ModalPacientes
         handleSubmit={handleSubmit}

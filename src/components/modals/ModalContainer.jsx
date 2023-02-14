@@ -3,7 +3,7 @@ import BtnContent from '../buttons/BtnContent';
 import useModalStore from '../../store/VitalStore';
 
 const ModalContainer = ({ children, title, handleSubmit }) => {
-  const { isModalOpen } = useModalStore();
+  const { isModalOpen } = useModalStore((state) => state);
 
   return (
     <div

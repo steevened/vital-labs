@@ -2,6 +2,9 @@ import { create } from 'zustand';
 
 const useModalStore = create((set) => ({
   isModalOpen: false,
+  idOpen: null,
+  setIdOpen: (id) => set({ idOpen: id }),
+  unselectId: () => set({ idOpen: null }),
   openModal: () => set({ isModalOpen: true }),
   closeModal: () => set({ isModalOpen: false }),
 }));

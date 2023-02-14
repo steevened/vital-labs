@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BtnTable from '../../buttons/BtnTable';
 import TableDesc from '../TableDesc';
 
@@ -12,7 +12,7 @@ function MedicoItem({ medico }) {
       <TableDesc>{medico.senescyt}</TableDesc>
       <TableDesc>{medico.especialidad}</TableDesc>
       <TableDesc>{medico.access}</TableDesc>
-      <BtnTable />
+      <BtnTable id={medico.id} />
     </tr>
   );
 }

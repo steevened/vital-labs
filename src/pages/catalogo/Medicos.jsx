@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddMedico } from '../../hooks/UseMedicos';
 import useModalStore from '../../store/VitalStore';
+import TableDimensions from '../../components/tables/TableDimensions';
 
 const Medicos = () => {
   const closeModal = useModalStore((state) => state.closeModal);
@@ -52,9 +53,9 @@ const Medicos = () => {
       <div>
         <Toaster />
       </div>
-      <div className="flex items-center justify-start mt-12 w-[95%]  mx-auto flex-col ">
+      <TableDimensions>
         <MedicosTable />
-      </div>
+      </TableDimensions>
       <ModalOverlay />
       <ModalMedico
         formData={formData}

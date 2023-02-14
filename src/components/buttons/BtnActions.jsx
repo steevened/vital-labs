@@ -1,12 +1,18 @@
 import React from 'react';
 import useModalStore from '../../store/VitalStore';
 
-export default function BtnActions({ action }) {
-  const openModal = useModalStore((state) => state.openModal);
+export default function BtnActions({ action, id }) {
+  const { openModal, setIdOpen, idOpen } = useModalStore((state) => state);
+
+  const handleEdit = (id) => {
+    openModal();
+    setIdOpen(id);
+  };
+
   if (action === 'view') {
     return (
       <button
-        onClick={() => openModal()}
+        onClick={() => handleEdit(id)}
         className="bg-sky-200  hover:bg-sky-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm hover:text-white"
       >
         <svg
