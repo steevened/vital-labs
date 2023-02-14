@@ -1,4 +1,4 @@
-import React from 'react';
+import useModalStore from '../../store/VitalStore';
 
 export default function SelectModal({
   options,
@@ -8,11 +8,13 @@ export default function SelectModal({
   onChange,
   name,
 }) {
+  const { fieldsDisabled } = useModalStore((state) => state);
+
   return (
     <select
       name={name}
       onChange={onChange}
-      // defaultValue={title}
+      disabled={fieldsDisabled}
       value={value}
       className={`select select-sm select-bordered w-full mt-3 shadow-base-300 shadow-lg cols  cols-${
         !cols || cols === 1 ? '1' : cols

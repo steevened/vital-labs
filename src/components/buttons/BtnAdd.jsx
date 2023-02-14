@@ -2,12 +2,15 @@ import React from 'react';
 import useModalStore from '../../store/VitalStore';
 import BtnContent from './BtnContent';
 
-export default function BtnAdd({ setShowModal }) {
-  const { openModal } = useModalStore((state) => state);
+export default function BtnAdd() {
+  const { openModal, enableFields } = useModalStore((state) => state);
 
   return (
     <div
-      onClick={() => openModal()}
+      onClick={() => {
+        openModal();
+        enableFields();
+      }}
       className="flex items-center justify-center"
     >
       <BtnContent>

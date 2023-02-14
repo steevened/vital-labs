@@ -32,7 +32,6 @@ const Medicos = () => {
     });
   };
 
-  console.log(formData);
   const queryClient = useQueryClient();
 
   const addMedico = useMutation(useAddMedico, {

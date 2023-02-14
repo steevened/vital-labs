@@ -53,8 +53,3 @@ const Medicos = () => {
 };
 
 export default Medicos;
-
-{
-  /* <BtnActions action="edit" />
-                  <BtnActions action="delete" /> */
-}

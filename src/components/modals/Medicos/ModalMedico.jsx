@@ -17,7 +17,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
 
   const { nombres, apellidos, ruc, folio, senescyt, especialidad } = formData;
 
-  const { idOpen } = useModalStore((state) => state);
+  const { idOpen, fieldsDisabled } = useModalStore((state) => state);
 
   useEffect(() => {
     if (idOpen) {
@@ -29,7 +29,10 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
   }, [idOpen]);
 
   return (
-    <ModalContainer title="Añadir Médico" handleSubmit={handleSubmit}>
+    <ModalContainer
+      title={fieldsDisabled ? 'Médico' : 'Añadir Médico'}
+      handleSubmit={handleSubmit}
+    >
       <InputForm
         type="text"
         label="Nombres"
@@ -78,6 +81,14 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         value={senescyt}
         name="senescyt"
       />
+      <SelectModal
+        cols="2"
+        title="Especialidad"
+        options={especialidadOptions}
+        value={especialidad}
+        onChange={onChange}
+        name="especialidad"
+      />
       <InputForm
         type="file"
         label="Registro Senescyt"
@@ -89,14 +100,6 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         label="Registro Access"
         input="file-input"
         spam={false}
-      />
-      <SelectModal
-        cols="2"
-        title="Especialidad"
-        options={especialidadOptions}
-        value={especialidad}
-        onChange={onChange}
-        name="especialidad"
       />
     </ModalContainer>
   );

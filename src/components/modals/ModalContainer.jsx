@@ -1,9 +1,10 @@
 import React from 'react';
 import BtnContent from '../buttons/BtnContent';
 import useModalStore from '../../store/VitalStore';
+import BtnActions from '../buttons/BtnActions';
 
 const ModalContainer = ({ children, title, handleSubmit }) => {
-  const { isModalOpen } = useModalStore((state) => state);
+  const { isModalOpen, fieldsDisabled } = useModalStore((state) => state);
 
   return (
     <div
@@ -12,7 +13,26 @@ const ModalContainer = ({ children, title, handleSubmit }) => {
       }`}
     >
       <div className="bg-base-200 w-full h-full p-3">
-        <h2 className="text-center text-2xl font-semibold">{title}</h2>
+        <div
+          className={`md:px-4 flex items-center justify-${
+            fieldsDisabled ? 'between' : 'center'
+          }`}
+        >
+          <h2
+            className={`text-${
+              fieldsDisabled ? 'left' : 'center'
+            } text-2xl font-semibold`}
+          >
+            {title}
+          </h2>
+          {fieldsDisabled && (
+            <div className="flex gap-2 md:gap-5">
+              <BtnActions action="edit" />
+              <BtnActions action="delete" />
+            </div>
+          )}
+        </div>
+
         <div className="divider mt-2"></div>
         <form onSubmit={handleSubmit} className="px-2">
           <div className=" flex items-center justify-between">

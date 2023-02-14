@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useModalStore from '../../../store/VitalStore';
 
 export default function InputForm({
   label,
@@ -10,6 +11,8 @@ export default function InputForm({
   value,
   name,
 }) {
+  const { fieldsDisabled } = useModalStore((state) => state);
+
   return (
     <div
       className={`flex flex-col w-full cols  cols-${
@@ -21,6 +24,7 @@ export default function InputForm({
         {spam === true && <span className="text-red-500">*</span>}
       </label>
       <input
+        disabled={fieldsDisabled}
         name={name}
         value={value}
         onChange={onChange}
