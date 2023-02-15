@@ -15,11 +15,10 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
 
   const { data: medicos } = UseFetchMedicos();
 
-  const { nombres, apellidos, ruc, folio, senescyt, especialidad } = formData;
+  const { nombres, apellidos, ruc, folio, senescyt, especialidad, access } =
+    formData;
 
   const { idOpen, fieldsDisabled } = useModalStore((state) => state);
-
-  console.log(fieldsDisabled);
 
   useEffect(() => {
     if (idOpen) {
@@ -83,10 +82,21 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
         label="№ Registro Senescyt"
         input="number"
         spam={true}
-        cols={2}
+        // cols={2}
         onChange={onChange}
         value={senescyt}
         name="senescyt"
+        fieldsDisabled={fieldsDisabled}
+      />
+      <InputForm
+        type="number"
+        label="№ Access"
+        input="access"
+        spam={true}
+        // cols={2}
+        onChange={onChange}
+        value={access}
+        name="access"
         fieldsDisabled={fieldsDisabled}
       />
       <SelectModal

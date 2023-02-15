@@ -2,9 +2,8 @@ import React from 'react';
 import useModalStore from '../../store/VitalStore';
 
 export default function BtnActions({ action, id }) {
-  const { openModal, setIdOpen, disableFields, enableFields } = useModalStore(
-    (state) => state
-  );
+  const { openModal, setIdOpen, disableFields, enableFields, closeModal } =
+    useModalStore((state) => state);
 
   const handleEdit = (id) => {
     disableFields();
@@ -63,7 +62,12 @@ export default function BtnActions({ action, id }) {
     );
   } else if (action === 'delete') {
     return (
-      <button className="bg-rose-200  hover:bg-rose-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm">
+      <button
+        onClick={() => {
+          closeModal();
+        }}
+        className="bg-rose-200  hover:bg-rose-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

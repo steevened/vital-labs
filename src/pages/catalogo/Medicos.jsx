@@ -2,13 +2,13 @@ import HomeLayout from '../../layouts/HomeLayout';
 import MedicosTable from '../../components/tables/medicos/Medicos';
 import ModalMedico from '../../components/modals/Medicos/ModalMedico';
 import ModalOverlay from '../../components/modals/ModalOverlay';
-import { useState } from 'react';
 import BtnContainer from '../../components/buttons/BtnContainer';
 import { useMutation, useQueryClient } from 'react-query';
 import { toast, Toaster } from 'react-hot-toast';
 import { useAddMedico } from '../../hooks/UseMedicos';
 import useModalStore from '../../store/VitalStore';
 import TableDimensions from '../../components/tables/TableDimensions';
+import { useState } from 'react';
 
 const Medicos = () => {
   const closeModal = useModalStore((state) => state.closeModal);
@@ -36,16 +36,28 @@ const Medicos = () => {
 
   const addMedico = useMutation(useAddMedico, {
     onSuccess: () => {
-      toast.success('Añadido correctamente!');
       queryClient.invalidateQueries('medicos');
     },
   });
 
+  const handleAddMedico = async (medicoData) => {
+    try {
+      const response = await addMedico.mutateAsync(medicoData);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addMedico.mutate(formData);
     cleanValues();
     closeModal();
+    toast.promise(handleAddMedico(formData), {
+      loading: 'Añadiendo...',
+      success: 'Añadido correctamente!',
+      error: 'Intente Nuevamente!',
+    });
   };
 
   return (

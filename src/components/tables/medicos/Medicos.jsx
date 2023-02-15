@@ -8,6 +8,8 @@ import MedicoItem from './MedicoItem';
 const Medicos = () => {
   const { data: medicos, isLoading, error } = UseFetchMedicos();
 
+  // console.log(medicos);
+
   const { inputValue } = useInputValue((state) => state);
 
   if (error) return 'An error occurred: ' + error.message;
