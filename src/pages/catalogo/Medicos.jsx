@@ -5,7 +5,7 @@ import ModalOverlay from '../../components/modals/ModalOverlay';
 import BtnContainer from '../../components/buttons/BtnContainer';
 import { useMutation, useQueryClient } from 'react-query';
 import { toast, Toaster } from 'react-hot-toast';
-import { useAddMedico } from '../../hooks/UseMedicos';
+import { useAddMedico, useDeleteMedico } from '../../hooks/UseMedicos';
 import useModalStore from '../../store/VitalStore';
 import TableDimensions from '../../components/tables/TableDimensions';
 import { useState } from 'react';

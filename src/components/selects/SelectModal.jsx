@@ -14,7 +14,7 @@ export default function SelectModal({
       name={name}
       onChange={onChange}
       disabled={fieldsDisabled}
-      value={value}
+      defaultValue={title}
       className={`select select-sm select-bordered w-full mt-3 shadow-base-300 shadow-lg cols  cols-${
         !cols || cols === 1 ? '1' : cols
       }`}

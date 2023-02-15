@@ -1,9 +1,14 @@
 import React from 'react';
+import { toast, Toaster } from 'react-hot-toast';
+import { useMutation, useQueryClient } from 'react-query';
+import { useDeleteMedico } from '../../hooks/UseMedicos';
 import useModalStore from '../../store/VitalStore';
 
-export default function BtnActions({ action, id }) {
+export default function BtnActions({ action, id, idOpen }) {
   const { openModal, setIdOpen, disableFields, enableFields, closeModal } =
     useModalStore((state) => state);
+
+  const queryClient = useQueryClient();
 
   const handleEdit = (id) => {
     disableFields();
@@ -11,32 +16,57 @@ export default function BtnActions({ action, id }) {
     setIdOpen(id);
   };
 
+  const deleteMedicoMutation = useMutation(useDeleteMedico, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('medicos');
+    },
+  });
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await deleteMedicoMutation.mutateAsync(id);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteMedico = (id) => {
+    toast.promise(handleDelete(id), {
+      loading: 'Eliminando...',
+      success: 'Eliminado correctamente!',
+      error: 'Intente Nuevamente!',
+    });
+  };
+
   if (action === 'view') {
     return (
-      <button
-        onClick={() => handleEdit(id)}
-        className="bg-sky-200  hover:bg-sky-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm hover:text-white"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-4 h-4 "
+      <>
+        <button
+          onClick={() => handleEdit(id)}
+          className="bg-sky-200  hover:bg-sky-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm hover:text-white"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4 "
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </button>
+      </>
     );
   } else if (action === 'edit') {
     return (
@@ -65,6 +95,8 @@ export default function BtnActions({ action, id }) {
       <button
         onClick={() => {
           closeModal();
+          deleteMedico(idOpen);
+          // console.log(idOpen);
         }}
         className="bg-rose-200  hover:bg-rose-400 transition-all active:scale-95 p-2 rounded-full font-bold shadow-lg shadow-base-content/30 flex items-center gap-1 justify-center text-sm"
       >

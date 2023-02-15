@@ -34,6 +34,7 @@ const ModalMedico = ({ formData, setFormData, handleSubmit, cleanValues }) => {
       title={fieldsDisabled ? 'Médico' : 'Añadir Médico'}
       handleSubmit={handleSubmit}
       fieldsDisabled={fieldsDisabled}
+      idOpen={idOpen}
     >
       <InputForm
         type="text"

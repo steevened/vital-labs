@@ -10,8 +10,8 @@ function MedicoItem({ medico }) {
       <TableDesc>{medico.ruc}</TableDesc>
       <TableDesc>{medico.folio}</TableDesc>
       <TableDesc>{medico.senescyt}</TableDesc>
-      <TableDesc>{medico.especialidad}</TableDesc>
       <TableDesc>{medico.access}</TableDesc>
+      <TableDesc>{medico.especialidad}</TableDesc>
       <BtnTable id={medico.id} />
     </tr>
   );

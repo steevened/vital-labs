@@ -3,7 +3,13 @@ import BtnContent from '../buttons/BtnContent';
 import useModalStore from '../../store/VitalStore';
 import BtnActions from '../buttons/BtnActions';
 
-const ModalContainer = ({ children, title, handleSubmit, fieldsDisabled }) => {
+const ModalContainer = ({
+  children,
+  title,
+  handleSubmit,
+  fieldsDisabled,
+  idOpen,
+}) => {
   const { isModalOpen } = useModalStore((state) => state);
 
   return (
@@ -28,7 +34,7 @@ const ModalContainer = ({ children, title, handleSubmit, fieldsDisabled }) => {
           {fieldsDisabled && (
             <div className="flex gap-2 md:gap-5">
               <BtnActions action="edit" />
-              <BtnActions action="delete" />
+              <BtnActions idOpen={idOpen} action="delete" />
             </div>
           )}
         </div>

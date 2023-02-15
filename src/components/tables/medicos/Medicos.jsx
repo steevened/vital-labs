@@ -20,8 +20,8 @@ const Medicos = () => {
     'Cédula / RUC',
     '№ Folio',
     'Registro Selescyt',
-    'Especialidad',
     'Registro Access',
+    'Especialidad',
     '',
   ];
 

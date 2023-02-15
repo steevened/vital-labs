@@ -1,6 +1,7 @@
-import { addDoc, getDocs } from 'firebase/firestore';
-import { useQuery } from 'react-query';
+import { addDoc, getDocs, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { useQuery, useMutation } from 'react-query';
 import { medicosRef } from '../api/apiFirebase';
+import { db } from '../firebase/firebaseConfig';
 
 const fetchMedicos = async () => {
   const data = await getDocs(medicosRef);
@@ -12,5 +13,16 @@ export const UseFetchMedicos = () => {
 };
 
 export const useAddMedico = async (data) => {
-  await addDoc(medicosRef, data);
+  return await addDoc(medicosRef, data);
+};
+
+const updateMedico = async (id, data) => {
+  const medicoDoc = doc(db, 'medicos', id);
+  const newFields = { data };
+  return await updateDoc(medicoDoc, newFields);
+};
+
+export const useDeleteMedico = async (id) => {
+  const medicoDoc = doc(db, 'medicos', id);
+  await deleteDoc(medicoDoc);
 };
