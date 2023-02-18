@@ -51,7 +51,7 @@ const Login = () => {
               setIsPasswordHidden={setIsPasswordHidden}
             />
           </InputGroup>
-          <button className="btn shadow-lg btn-block bg-[#00A99D] hover:bg-[#39BC99] border-none rounded-none mt-10">
+          <button className="btn shadow-lg btn-block bg-[#00A99D] hover:bg-[#39BC99] border-none rounded-none mt-10 text-white">
             <span className="mr-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
